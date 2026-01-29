@@ -1,307 +1,307 @@
-# 🦞 Moltbot（Clawdbot） 中文翻译— 个人 AI 助手
+# 🦞 Moltbot — Personal AI Assistant
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/moltbot/moltbot/main/docs/whatsapp-clawd.jpg" alt="Clawdbot" width="400">
 </p>
 
 <p align="center">
-  <strong>蜕皮吧！蜕皮吧！</strong>
+  <strong>EXFOLIATE! EXFOLIATE!</strong>
 </p>
 
 <p align="center">
-  <a href="https://github.com/moltbot/moltbot/actions/workflows/ci.yml?branch=main"><img src="https://img.shields.io/github/actions/workflow/status/moltbot/moltbot/ci.yml?branch=main&style=for-the-badge" alt="CI 状态"></a>
-  <a href="https://github.com/moltbot/moltbot/releases"><img src="https://img.shields.io/github/v/release/moltbot/moltbot?include_prereleases&style=for-the-badge" alt="GitHub 发布"></a>
+  <a href="https://github.com/moltbot/moltbot/actions/workflows/ci.yml?branch=main"><img src="https://img.shields.io/github/actions/workflow/status/moltbot/moltbot/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
+  <a href="https://github.com/moltbot/moltbot/releases"><img src="https://img.shields.io/github/v/release/moltbot/moltbot?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
   <a href="https://deepwiki.com/moltbot/moltbot"><img src="https://img.shields.io/badge/DeepWiki-moltbot-111111?style=for-the-badge" alt="DeepWiki"></a>
   <a href="https://discord.gg/clawd"><img src="https://img.shields.io/discord/1456350064065904867?label=Discord&logo=discord&logoColor=white&color=5865F2&style=for-the-badge" alt="Discord"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT 许可证"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
 </p>
 
-**Moltbot** 是一个运行在你自己设备上的*个人 AI 助手*。
-它在你已经使用的频道上回答你的问题（WhatsApp、Telegram、Slack、Discord、Google Chat、Signal、iMessage、Microsoft Teams、WebChat），以及扩展频道如 BlueBubbles、Matrix、Zalo 和 Zalo Personal。它可以在 macOS/iOS/Android 上说话和倾听，并可以渲染一个你控制的实时画布。网关只是控制平面——产品才是助手。
+**Moltbot** is a *personal AI assistant* you run on your own devices.
+It answers you on the channels you already use (WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage, Microsoft Teams, WebChat), plus extension channels like BlueBubbles, Matrix, Zalo, and Zalo Personal. It can speak and listen on macOS/iOS/Android, and can render a live Canvas you control. The Gateway is just the control plane — the product is the assistant.
 
-如果你想要一个个人的、单用户的助手，感觉本地、快速且始终在线，这就是它。
+If you want a personal, single-user assistant that feels local, fast, and always-on, this is it.
 
-[网站](https://molt.bot) · [文档](https://docs.molt.bot) · [快速入门](https://docs.molt.bot/start/getting-started) · [更新](https://docs.molt.bot/install/updating) · [展示](https://docs.molt.bot/start/showcase) · [常见问题](https://docs.molt.bot/start/faq) · [向导](https://docs.molt.bot/start/wizard) · [Nix](https://github.com/moltbot/nix-clawdbot) · [Docker](https://docs.molt.bot/install/docker) · [Discord](https://discord.gg/clawd)
+[Website](https://molt.bot) · [Docs](https://docs.molt.bot) · [Getting Started](https://docs.molt.bot/start/getting-started) · [Updating](https://docs.molt.bot/install/updating) · [Showcase](https://docs.molt.bot/start/showcase) · [FAQ](https://docs.molt.bot/start/faq) · [Wizard](https://docs.molt.bot/start/wizard) · [Nix](https://github.com/moltbot/nix-clawdbot) · [Docker](https://docs.molt.bot/install/docker) · [Discord](https://discord.gg/clawd)
 
-推荐设置：运行入门向导（`moltbot onboard`）。它会引导你完成网关、工作区、频道和技能的设置。CLI 向导是推荐的路径，适用于 **macOS、Linux 和 Windows（通过 WSL2；强烈推荐）**。
-支持 npm、pnpm 或 bun。
-新安装？从这里开始：[快速入门](https://docs.molt.bot/start/getting-started)
+Preferred setup: run the onboarding wizard (`moltbot onboard`). It walks through gateway, workspace, channels, and skills. The CLI wizard is the recommended path and works on **macOS, Linux, and Windows (via WSL2; strongly recommended)**.
+Works with npm, pnpm, or bun.
+New install? Start here: [Getting started](https://docs.molt.bot/start/getting-started)
 
-**订阅（OAuth）：**
+**Subscriptions (OAuth):**
 - **[Anthropic](https://www.anthropic.com/)** (Claude Pro/Max)
 - **[OpenAI](https://openai.com/)** (ChatGPT/Codex)
 
-模型说明：虽然支持任何模型，但我强烈推荐 **Anthropic Pro/Max (100/200) + Opus 4.5** 以获得长上下文强度和更好的提示注入抵抗能力。参见[入门指南](https://docs.molt.bot/start/onboarding)。
+Model note: while any model is supported, I strongly recommend **Anthropic Pro/Max (100/200) + Opus 4.5** for long‑context strength and better prompt‑injection resistance. See [Onboarding](https://docs.molt.bot/start/onboarding).
 
-## 模型（选择 + 认证）
+## Models (selection + auth)
 
-- 模型配置 + CLI：[模型](https://docs.molt.bot/concepts/models)
-- 认证配置轮换（OAuth vs API 密钥）+ 故障转移：[模型故障转移](https://docs.molt.bot/concepts/model-failover)
+- Models config + CLI: [Models](https://docs.molt.bot/concepts/models)
+- Auth profile rotation (OAuth vs API keys) + fallbacks: [Model failover](https://docs.molt.bot/concepts/model-failover)
 
-## 安装（推荐）
+## Install (recommended)
 
-运行时要求：**Node ≥22**。
+Runtime: **Node ≥22**.
 
 ```bash
 npm install -g moltbot@latest
-# 或：pnpm add -g moltbot@latest
+# or: pnpm add -g moltbot@latest
 
 moltbot onboard --install-daemon
 ```
 
-向导会安装网关守护进程（launchd/systemd 用户服务）使其保持运行。
-遗留说明：`clawdbot` 作为兼容性垫片仍然可用。
+The wizard installs the Gateway daemon (launchd/systemd user service) so it stays running.
+Legacy note: `clawdbot` remains available as a compatibility shim.
 
-## 快速入门（简述）
+## Quick start (TL;DR)
 
-运行时要求：**Node ≥22**。
+Runtime: **Node ≥22**.
 
-完整的新手指南（认证、配对、频道）：[快速入门](https://docs.molt.bot/start/getting-started)
+Full beginner guide (auth, pairing, channels): [Getting started](https://docs.molt.bot/start/getting-started)
 
 ```bash
 moltbot onboard --install-daemon
 
 moltbot gateway --port 18789 --verbose
 
-# 发送消息
-moltbot message send --to +1234567890 --message "来自 Moltbot 的问候"
+# Send a message
+moltbot message send --to +1234567890 --message "Hello from Moltbot"
 
-# 与助手对话（可选择传回到任何已连接的频道：WhatsApp/Telegram/Slack/Discord/Google Chat/Signal/iMessage/BlueBubbles/Microsoft Teams/Matrix/Zalo/Zalo Personal/WebChat）
-moltbot agent --message "发货清单" --thinking high
+# Talk to the assistant (optionally deliver back to any connected channel: WhatsApp/Telegram/Slack/Discord/Google Chat/Signal/iMessage/BlueBubbles/Microsoft Teams/Matrix/Zalo/Zalo Personal/WebChat)
+moltbot agent --message "Ship checklist" --thinking high
 ```
 
-正在升级？[更新指南](https://docs.molt.bot/install/updating)（并运行 `moltbot doctor`）。
+Upgrading? [Updating guide](https://docs.molt.bot/install/updating) (and run `moltbot doctor`).
 
-## 开发频道
+## Development channels
 
-- **stable**：标记的发布版本（`vYYYY.M.D` 或 `vYYYY.M.D-<patch>`），npm 分发标签 `latest`。
-- **beta**：预发布标签（`vYYYY.M.D-beta.N`），npm 分发标签 `beta`（可能缺少 macOS 应用）。
-- **dev**：`main` 分支的最新状态，npm 分发标签 `dev`（发布时）。
+- **stable**: tagged releases (`vYYYY.M.D` or `vYYYY.M.D-<patch>`), npm dist-tag `latest`.
+- **beta**: prerelease tags (`vYYYY.M.D-beta.N`), npm dist-tag `beta` (macOS app may be missing).
+- **dev**: moving head of `main`, npm dist-tag `dev` (when published).
 
-切换频道（git + npm）：`moltbot update --channel stable|beta|dev`。
-详情：[开发频道](https://docs.molt.bot/install/development-channels)。
+Switch channels (git + npm): `moltbot update --channel stable|beta|dev`.
+Details: [Development channels](https://docs.molt.bot/install/development-channels).
 
-## 从源码构建（开发）
+## From source (development)
 
-推荐使用 `pnpm` 进行源码构建。Bun 是可选的，用于直接运行 TypeScript。
+Prefer `pnpm` for builds from source. Bun is optional for running TypeScript directly.
 
 ```bash
 git clone https://github.com/moltbot/moltbot.git
 cd moltbot
 
 pnpm install
-pnpm ui:build # 首次运行时自动安装 UI 依赖
+pnpm ui:build # auto-installs UI deps on first run
 pnpm build
 
 pnpm moltbot onboard --install-daemon
 
-# 开发循环（TS 更改时自动重新加载）
+# Dev loop (auto-reload on TS changes)
 pnpm gateway:watch
 ```
 
-注意：`pnpm moltbot ...` 直接运行 TypeScript（通过 `tsx`）。`pnpm build` 生成 `dist/` 用于通过 Node / 打包的 `moltbot` 二进制文件运行。
+Note: `pnpm moltbot ...` runs TypeScript directly (via `tsx`). `pnpm build` produces `dist/` for running via Node / the packaged `moltbot` binary.
 
-## 安全默认值（私信访问）
+## Security defaults (DM access)
 
-Moltbot 连接到真实的消息界面。将入站私信视为**不受信任的输入**。
+Moltbot connects to real messaging surfaces. Treat inbound DMs as **untrusted input**.
 
-完整安全指南：[安全](https://docs.molt.bot/gateway/security)
+Full security guide: [Security](https://docs.molt.bot/gateway/security)
 
-Telegram/WhatsApp/Signal/iMessage/Microsoft Teams/Discord/Google Chat/Slack 上的默认行为：
-- **私信配对**（`dmPolicy="pairing"` / `channels.discord.dm.policy="pairing"` / `channels.slack.dm.policy="pairing"`）：未知发送者会收到一个简短的配对代码，机器人不会处理他们的消息。
-- 使用以下命令批准：`moltbot pairing approve <channel> <code>`（然后将发送者添加到本地允许列表存储）。
-- 公开入站私信需要明确选择加入：设置 `dmPolicy="open"` 并在频道允许列表中包含 `"*"`（`allowFrom` / `channels.discord.dm.allowFrom` / `channels.slack.dm.allowFrom`）。
+Default behavior on Telegram/WhatsApp/Signal/iMessage/Microsoft Teams/Discord/Google Chat/Slack:
+- **DM pairing** (`dmPolicy="pairing"` / `channels.discord.dm.policy="pairing"` / `channels.slack.dm.policy="pairing"`): unknown senders receive a short pairing code and the bot does not process their message.
+- Approve with: `moltbot pairing approve <channel> <code>` (then the sender is added to a local allowlist store).
+- Public inbound DMs require an explicit opt-in: set `dmPolicy="open"` and include `"*"` in the channel allowlist (`allowFrom` / `channels.discord.dm.allowFrom` / `channels.slack.dm.allowFrom`).
 
-运行 `moltbot doctor` 来暴露有风险/配置错误的私信策略。
+Run `moltbot doctor` to surface risky/misconfigured DM policies.
 
-## 亮点
+## Highlights
 
-- **[本地优先网关](https://docs.molt.bot/gateway)** — 会话、频道、工具和事件的单一控制平面。
-- **[多频道收件箱](https://docs.molt.bot/channels)** — WhatsApp、Telegram、Slack、Discord、Google Chat、Signal、iMessage、BlueBubbles、Microsoft Teams、Matrix、Zalo、Zalo Personal、WebChat、macOS、iOS/Android。
-- **[多代理路由](https://docs.molt.bot/gateway/configuration)** — 将入站频道/账户/对等点路由到隔离的代理（工作区 + 每代理会话）。
-- **[语音唤醒](https://docs.molt.bot/nodes/voicewake) + [对话模式](https://docs.molt.bot/nodes/talk)** — 适用于 macOS/iOS/Android 的始终在线语音，配合 ElevenLabs。
-- **[实时画布](https://docs.molt.bot/platforms/mac/canvas)** — 由代理驱动的视觉工作空间，具有 [A2UI](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui)。
-- **[一流工具](https://docs.molt.bot/tools)** — 浏览器、画布、节点、cron、会话以及 Discord/Slack 操作。
-- **[配套应用](https://docs.molt.bot/platforms/macos)** — macOS 菜单栏应用 + iOS/Android [节点](https://docs.molt.bot/nodes)。
-- **[入门](https://docs.molt.bot/start/wizard) + [技能](https://docs.molt.bot/tools/skills)** — 向导驱动的设置，包含捆绑/管理/工作区技能。
+- **[Local-first Gateway](https://docs.molt.bot/gateway)** — single control plane for sessions, channels, tools, and events.
+- **[Multi-channel inbox](https://docs.molt.bot/channels)** — WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage, BlueBubbles, Microsoft Teams, Matrix, Zalo, Zalo Personal, WebChat, macOS, iOS/Android.
+- **[Multi-agent routing](https://docs.molt.bot/gateway/configuration)** — route inbound channels/accounts/peers to isolated agents (workspaces + per-agent sessions).
+- **[Voice Wake](https://docs.molt.bot/nodes/voicewake) + [Talk Mode](https://docs.molt.bot/nodes/talk)** — always-on speech for macOS/iOS/Android with ElevenLabs.
+- **[Live Canvas](https://docs.molt.bot/platforms/mac/canvas)** — agent-driven visual workspace with [A2UI](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui).
+- **[First-class tools](https://docs.molt.bot/tools)** — browser, canvas, nodes, cron, sessions, and Discord/Slack actions.
+- **[Companion apps](https://docs.molt.bot/platforms/macos)** — macOS menu bar app + iOS/Android [nodes](https://docs.molt.bot/nodes).
+- **[Onboarding](https://docs.molt.bot/start/wizard) + [skills](https://docs.molt.bot/tools/skills)** — wizard-driven setup with bundled/managed/workspace skills.
 
-## Star 历史
+## Star History
 
-[![Star 历史图表](https://api.star-history.com/svg?repos=moltbot/moltbot&type=date&legend=top-left)](https://www.star-history.com/#moltbot/moltbot&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=moltbot/moltbot&type=date&legend=top-left)](https://www.star-history.com/#moltbot/moltbot&type=date&legend=top-left)
 
-## 我们到目前为止构建的所有内容
+## Everything we built so far
 
-### 核心平台
-- [网关 WS 控制平面](https://docs.molt.bot/gateway)，包含会话、在线状态、配置、cron、webhook、[控制 UI](https://docs.molt.bot/web)和[画布主机](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui)。
-- [CLI 界面](https://docs.molt.bot/tools/agent-send)：网关、代理、发送、[向导](https://docs.molt.bot/start/wizard)和[医生](https://docs.molt.bot/gateway/doctor)。
-- [Pi 代理运行时](https://docs.molt.bot/concepts/agent)（RPC 模式），支持工具流和块流。
-- [会话模型](https://docs.molt.bot/concepts/session)：`main` 用于直接聊天、群组隔离、激活模式、队列模式、回复。群组规则：[群组](https://docs.molt.bot/concepts/groups)。
-- [媒体管道](https://docs.molt.bot/nodes/images)：图片/音频/视频、转录钩子、大小限制、临时文件生命周期。音频详情：[音频](https://docs.molt.bot/nodes/audio)。
+### Core platform
+- [Gateway WS control plane](https://docs.molt.bot/gateway) with sessions, presence, config, cron, webhooks, [Control UI](https://docs.molt.bot/web), and [Canvas host](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui).
+- [CLI surface](https://docs.molt.bot/tools/agent-send): gateway, agent, send, [wizard](https://docs.molt.bot/start/wizard), and [doctor](https://docs.molt.bot/gateway/doctor).
+- [Pi agent runtime](https://docs.molt.bot/concepts/agent) in RPC mode with tool streaming and block streaming.
+- [Session model](https://docs.molt.bot/concepts/session): `main` for direct chats, group isolation, activation modes, queue modes, reply-back. Group rules: [Groups](https://docs.molt.bot/concepts/groups).
+- [Media pipeline](https://docs.molt.bot/nodes/images): images/audio/video, transcription hooks, size caps, temp file lifecycle. Audio details: [Audio](https://docs.molt.bot/nodes/audio).
 
-### 频道
-- [频道](https://docs.molt.bot/channels)：[WhatsApp](https://docs.molt.bot/channels/whatsapp)（Baileys）、[Telegram](https://docs.molt.bot/channels/telegram)（grammY）、[Slack](https://docs.molt.bot/channels/slack)（Bolt）、[Discord](https://docs.molt.bot/channels/discord)（discord.js）、[Google Chat](https://docs.molt.bot/channels/googlechat)（Chat API）、[Signal](https://docs.molt.bot/channels/signal)（signal-cli）、[iMessage](https://docs.molt.bot/channels/imessage)（imsg）、[BlueBubbles](https://docs.molt.bot/channels/bluebubbles)（扩展）、[Microsoft Teams](https://docs.molt.bot/channels/msteams)（扩展）、[Matrix](https://docs.molt.bot/channels/matrix)（扩展）、[Zalo](https://docs.molt.bot/channels/zalo)（扩展）、[Zalo Personal](https://docs.molt.bot/channels/zalouser)（扩展）、[WebChat](https://docs.molt.bot/web/webchat)。
-- [群组路由](https://docs.molt.bot/concepts/group-messages)：提及过滤、回复标签、每频道分块和路由。频道规则：[频道](https://docs.molt.bot/channels)。
+### Channels
+- [Channels](https://docs.molt.bot/channels): [WhatsApp](https://docs.molt.bot/channels/whatsapp) (Baileys), [Telegram](https://docs.molt.bot/channels/telegram) (grammY), [Slack](https://docs.molt.bot/channels/slack) (Bolt), [Discord](https://docs.molt.bot/channels/discord) (discord.js), [Google Chat](https://docs.molt.bot/channels/googlechat) (Chat API), [Signal](https://docs.molt.bot/channels/signal) (signal-cli), [iMessage](https://docs.molt.bot/channels/imessage) (imsg), [BlueBubbles](https://docs.molt.bot/channels/bluebubbles) (extension), [Microsoft Teams](https://docs.molt.bot/channels/msteams) (extension), [Matrix](https://docs.molt.bot/channels/matrix) (extension), [Zalo](https://docs.molt.bot/channels/zalo) (extension), [Zalo Personal](https://docs.molt.bot/channels/zalouser) (extension), [WebChat](https://docs.molt.bot/web/webchat).
+- [Group routing](https://docs.molt.bot/concepts/group-messages): mention gating, reply tags, per-channel chunking and routing. Channel rules: [Channels](https://docs.molt.bot/channels).
 
-### 应用 + 节点
-- [macOS 应用](https://docs.molt.bot/platforms/macos)：菜单栏控制平面、[语音唤醒](https://docs.molt.bot/nodes/voicewake)/PTT、[对话模式](https://docs.molt.bot/nodes/talk)覆盖层、[WebChat](https://docs.molt.bot/web/webchat)、调试工具、[远程网关](https://docs.molt.bot/gateway/remote)控制。
-- [iOS 节点](https://docs.molt.bot/platforms/ios)：[画布](https://docs.molt.bot/platforms/mac/canvas)、[语音唤醒](https://docs.molt.bot/nodes/voicewake)、[对话模式](https://docs.molt.bot/nodes/talk)、相机、屏幕录制、Bonjour 配对。
-- [Android 节点](https://docs.molt.bot/platforms/android)：[画布](https://docs.molt.bot/platforms/mac/canvas)、[对话模式](https://docs.molt.bot/nodes/talk)、相机、屏幕录制、可选的 SMS。
-- [macOS 节点模式](https://docs.molt.bot/nodes)：system.run/notify + 画布/相机暴露。
+### Apps + nodes
+- [macOS app](https://docs.molt.bot/platforms/macos): menu bar control plane, [Voice Wake](https://docs.molt.bot/nodes/voicewake)/PTT, [Talk Mode](https://docs.molt.bot/nodes/talk) overlay, [WebChat](https://docs.molt.bot/web/webchat), debug tools, [remote gateway](https://docs.molt.bot/gateway/remote) control.
+- [iOS node](https://docs.molt.bot/platforms/ios): [Canvas](https://docs.molt.bot/platforms/mac/canvas), [Voice Wake](https://docs.molt.bot/nodes/voicewake), [Talk Mode](https://docs.molt.bot/nodes/talk), camera, screen recording, Bonjour pairing.
+- [Android node](https://docs.molt.bot/platforms/android): [Canvas](https://docs.molt.bot/platforms/mac/canvas), [Talk Mode](https://docs.molt.bot/nodes/talk), camera, screen recording, optional SMS.
+- [macOS node mode](https://docs.molt.bot/nodes): system.run/notify + canvas/camera exposure.
 
-### 工具 + 自动化
-- [浏览器控制](https://docs.molt.bot/tools/browser)：专用的 moltbot Chrome/Chromium、快照、操作、上传、配置文件。
-- [画布](https://docs.molt.bot/platforms/mac/canvas)：[A2UI](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui)推送/重置、eval、快照。
-- [节点](https://docs.molt.bot/nodes)：相机抓拍/剪辑、屏幕录制、[location.get](https://docs.molt.bot/nodes/location-command)、通知。
-- [Cron + 唤醒](https://docs.molt.bot/automation/cron-jobs)；[webhook](https://docs.molt.bot/automation/webhook)；[Gmail Pub/Sub](https://docs.molt.bot/automation/gmail-pubsub)。
-- [技能平台](https://docs.molt.bot/tools/skills)：捆绑、管理和工作区技能，具有安装门控 + UI。
+### Tools + automation
+- [Browser control](https://docs.molt.bot/tools/browser): dedicated moltbot Chrome/Chromium, snapshots, actions, uploads, profiles.
+- [Canvas](https://docs.molt.bot/platforms/mac/canvas): [A2UI](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui) push/reset, eval, snapshot.
+- [Nodes](https://docs.molt.bot/nodes): camera snap/clip, screen record, [location.get](https://docs.molt.bot/nodes/location-command), notifications.
+- [Cron + wakeups](https://docs.molt.bot/automation/cron-jobs); [webhooks](https://docs.molt.bot/automation/webhook); [Gmail Pub/Sub](https://docs.molt.bot/automation/gmail-pubsub).
+- [Skills platform](https://docs.molt.bot/tools/skills): bundled, managed, and workspace skills with install gating + UI.
 
-### 运行时 + 安全
-- [频道路由](https://docs.molt.bot/concepts/channel-routing)、[重试策略](https://docs.molt.bot/concepts/retry)和[流式传输/分块](https://docs.molt.bot/concepts/streaming)。
-- [在线状态](https://docs.molt.bot/concepts/presence)、[输入指示器](https://docs.molt.bot/concepts/typing-indicators)和[使用跟踪](https://docs.molt.bot/concepts/usage-tracking)。
-- [模型](https://docs.molt.bot/concepts/models)、[模型故障转移](https://docs.molt.bot/concepts/model-failover)和[会话修剪](https://docs.molt.bot/concepts/session-pruning)。
-- [安全](https://docs.molt.bot/gateway/security)和[故障排除](https://docs.molt.bot/channels/troubleshooting)。
+### Runtime + safety
+- [Channel routing](https://docs.molt.bot/concepts/channel-routing), [retry policy](https://docs.molt.bot/concepts/retry), and [streaming/chunking](https://docs.molt.bot/concepts/streaming).
+- [Presence](https://docs.molt.bot/concepts/presence), [typing indicators](https://docs.molt.bot/concepts/typing-indicators), and [usage tracking](https://docs.molt.bot/concepts/usage-tracking).
+- [Models](https://docs.molt.bot/concepts/models), [model failover](https://docs.molt.bot/concepts/model-failover), and [session pruning](https://docs.molt.bot/concepts/session-pruning).
+- [Security](https://docs.molt.bot/gateway/security) and [troubleshooting](https://docs.molt.bot/channels/troubleshooting).
 
-### 运维 + 打包
-- 直接从网关提供[控制 UI](https://docs.molt.bot/web) + [WebChat](https://docs.molt.bot/web/webchat)。
-- [Tailscale Serve/Funnel](https://docs.molt.bot/gateway/tailscale)或[SSH 隧道](https://docs.molt.bot/gateway/remote)，带有令牌/密码认证。
-- [Nix 模式](https://docs.molt.bot/install/nix)用于声明性配置；基于[Docker](https://docs.molt.bot/install/docker)的安装。
-- [医生](https://docs.molt.bot/gateway/doctor)迁移、[日志记录](https://docs.molt.bot/logging)。
+### Ops + packaging
+- [Control UI](https://docs.molt.bot/web) + [WebChat](https://docs.molt.bot/web/webchat) served directly from the Gateway.
+- [Tailscale Serve/Funnel](https://docs.molt.bot/gateway/tailscale) or [SSH tunnels](https://docs.molt.bot/gateway/remote) with token/password auth.
+- [Nix mode](https://docs.molt.bot/install/nix) for declarative config; [Docker](https://docs.molt.bot/install/docker)-based installs.
+- [Doctor](https://docs.molt.bot/gateway/doctor) migrations, [logging](https://docs.molt.bot/logging).
 
-## 工作原理（简述）
+## How it works (short)
 
 ```
 WhatsApp / Telegram / Slack / Discord / Google Chat / Signal / iMessage / BlueBubbles / Microsoft Teams / Matrix / Zalo / Zalo Personal / WebChat
                │
                ▼
 ┌───────────────────────────────┐
-│            网关                │
-│       （控制平面）             │
+│            Gateway            │
+│       (control plane)         │
 │     ws://127.0.0.1:18789      │
 └──────────────┬────────────────┘
                │
-               ├─ Pi 代理（RPC）
-               ├─ CLI（moltbot …）
+               ├─ Pi agent (RPC)
+               ├─ CLI (moltbot …)
                ├─ WebChat UI
-               ├─ macOS 应用
-               └─ iOS / Android 节点
+               ├─ macOS app
+               └─ iOS / Android nodes
 ```
 
-## 关键子系统
+## Key subsystems
 
-- **[网关 WebSocket 网络](https://docs.molt.bot/concepts/architecture)** — 客户端、工具和事件的单一 WS 控制平面（加上运维：[网关运行手册](https://docs.molt.bot/gateway)）。
-- **[Tailscale 暴露](https://docs.molt.bot/gateway/tailscale)** — 用于网关仪表板 + WS 的 Serve/Funnel（远程访问：[远程](https://docs.molt.bot/gateway/remote)）。
-- **[浏览器控制](https://docs.molt.bot/tools/browser)** — 由 moltbot 管理的 Chrome/Chromium，具有 CDP 控制。
-- **[画布 + A2UI](https://docs.molt.bot/platforms/mac/canvas)** — 由代理驱动的视觉工作空间（A2UI 主机：[画布/A2UI](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui)）。
-- **[语音唤醒](https://docs.molt.bot/nodes/voicewake) + [对话模式](https://docs.molt.bot/nodes/talk)** — 始终在线的语音和连续对话。
-- **[节点](https://docs.molt.bot/nodes)** — 画布、相机抓拍/剪辑、屏幕录制、`location.get`、通知，加上仅限 macOS 的 `system.run`/`system.notify`。
+- **[Gateway WebSocket network](https://docs.molt.bot/concepts/architecture)** — single WS control plane for clients, tools, and events (plus ops: [Gateway runbook](https://docs.molt.bot/gateway)).
+- **[Tailscale exposure](https://docs.molt.bot/gateway/tailscale)** — Serve/Funnel for the Gateway dashboard + WS (remote access: [Remote](https://docs.molt.bot/gateway/remote)).
+- **[Browser control](https://docs.molt.bot/tools/browser)** — moltbot‑managed Chrome/Chromium with CDP control.
+- **[Canvas + A2UI](https://docs.molt.bot/platforms/mac/canvas)** — agent‑driven visual workspace (A2UI host: [Canvas/A2UI](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui)).
+- **[Voice Wake](https://docs.molt.bot/nodes/voicewake) + [Talk Mode](https://docs.molt.bot/nodes/talk)** — always‑on speech and continuous conversation.
+- **[Nodes](https://docs.molt.bot/nodes)** — Canvas, camera snap/clip, screen record, `location.get`, notifications, plus macOS‑only `system.run`/`system.notify`.
 
-## Tailscale 访问（网关仪表板）
+## Tailscale access (Gateway dashboard)
 
-Moltbot 可以自动配置 Tailscale **Serve**（仅限 tailnet）或 **Funnel**（公开），同时网关保持绑定到回环地址。配置 `gateway.tailscale.mode`：
+Moltbot can auto-configure Tailscale **Serve** (tailnet-only) or **Funnel** (public) while the Gateway stays bound to loopback. Configure `gateway.tailscale.mode`:
 
-- `off`：无 Tailscale 自动化（默认）。
-- `serve`：通过 `tailscale serve` 实现仅限 tailnet 的 HTTPS（默认使用 Tailscale 身份标头）。
-- `funnel`：通过 `tailscale funnel` 实现公开 HTTPS（需要共享密码认证）。
+- `off`: no Tailscale automation (default).
+- `serve`: tailnet-only HTTPS via `tailscale serve` (uses Tailscale identity headers by default).
+- `funnel`: public HTTPS via `tailscale funnel` (requires shared password auth).
 
-注意：
-- 当启用 Serve/Funnel 时，`gateway.bind` 必须保持为 `loopback`（Moltbot 会强制执行此操作）。
-- 可以通过设置 `gateway.auth.mode: "password"` 或 `gateway.auth.allowTailscale: false` 强制 Serve 要求密码。
-- 除非设置了 `gateway.auth.mode: "password"`，否则 Funnel 将拒绝启动。
-- 可选：`gateway.tailscale.resetOnExit` 在关闭时撤消 Serve/Funnel。
+Notes:
+- `gateway.bind` must stay `loopback` when Serve/Funnel is enabled (Moltbot enforces this).
+- Serve can be forced to require a password by setting `gateway.auth.mode: "password"` or `gateway.auth.allowTailscale: false`.
+- Funnel refuses to start unless `gateway.auth.mode: "password"` is set.
+- Optional: `gateway.tailscale.resetOnExit` to undo Serve/Funnel on shutdown.
 
-详情：[Tailscale 指南](https://docs.molt.bot/gateway/tailscale) · [Web 界面](https://docs.molt.bot/web)
+Details: [Tailscale guide](https://docs.molt.bot/gateway/tailscale) · [Web surfaces](https://docs.molt.bot/web)
 
-## 远程网关（Linux 很棒）
+## Remote Gateway (Linux is great)
 
-在小型 Linux 实例上运行网关是完全没问题的。客户端（macOS 应用、CLI、WebChat）可以通过 **Tailscale Serve/Funnel** 或 **SSH 隧道**连接，你仍然可以配对设备节点（macOS/iOS/Android）以在需要时执行设备本地操作。
+It’s perfectly fine to run the Gateway on a small Linux instance. Clients (macOS app, CLI, WebChat) can connect over **Tailscale Serve/Funnel** or **SSH tunnels**, and you can still pair device nodes (macOS/iOS/Android) to execute device‑local actions when needed.
 
-- **网关主机**默认运行 exec 工具和频道连接。
-- **设备节点**通过 `node.invoke` 运行设备本地操作（`system.run`、相机、屏幕录制、通知）。
-简而言之：exec 运行在网关所在的位置；设备操作运行在设备所在的位置。
+- **Gateway host** runs the exec tool and channel connections by default.
+- **Device nodes** run device‑local actions (`system.run`, camera, screen recording, notifications) via `node.invoke`.
+In short: exec runs where the Gateway lives; device actions run where the device lives.
 
-详情：[远程访问](https://docs.molt.bot/gateway/remote) · [节点](https://docs.molt.bot/nodes) · [安全](https://docs.molt.bot/gateway/security)
+Details: [Remote access](https://docs.molt.bot/gateway/remote) · [Nodes](https://docs.molt.bot/nodes) · [Security](https://docs.molt.bot/gateway/security)
 
-## 通过网关协议获取 macOS 权限
+## macOS permissions via the Gateway protocol
 
-macOS 应用可以在**节点模式**下运行，并通过网关 WebSocket（`node.list` / `node.describe`）通告其能力 + 权限映射。客户端然后可以通过 `node.invoke` 执行本地操作：
+The macOS app can run in **node mode** and advertises its capabilities + permission map over the Gateway WebSocket (`node.list` / `node.describe`). Clients can then execute local actions via `node.invoke`:
 
-- `system.run` 运行本地命令并返回 stdout/stderr/退出代码；设置 `needsScreenRecording: true` 以要求屏幕录制权限（否则你会得到 `PERMISSION_MISSING`）。
-- `system.notify` 发布用户通知，如果通知被拒绝则失败。
-- `canvas.*`、`camera.*`、`screen.record` 和 `location.get` 也通过 `node.invoke` 路由，并遵循 TCC 权限状态。
+- `system.run` runs a local command and returns stdout/stderr/exit code; set `needsScreenRecording: true` to require screen-recording permission (otherwise you’ll get `PERMISSION_MISSING`).
+- `system.notify` posts a user notification and fails if notifications are denied.
+- `canvas.*`, `camera.*`, `screen.record`, and `location.get` are also routed via `node.invoke` and follow TCC permission status.
 
-提升的 bash（主机权限）与 macOS TCC 是分开的：
+Elevated bash (host permissions) is separate from macOS TCC:
 
-- 使用 `/elevated on|off` 在启用 + 加入允许列表时切换每会话的提升访问。
-- 网关通过 `sessions.patch`（WS 方法）持久化每会话切换， alongside `thinkingLevel`、`verboseLevel`、`model`、`sendPolicy` 和 `groupActivation`。
+- Use `/elevated on|off` to toggle per‑session elevated access when enabled + allowlisted.
+- Gateway persists the per‑session toggle via `sessions.patch` (WS method) alongside `thinkingLevel`, `verboseLevel`, `model`, `sendPolicy`, and `groupActivation`.
 
-详情：[节点](https://docs.molt.bot/nodes) · [macOS 应用](https://docs.molt.bot/platforms/macos) · [网关协议](https://docs.molt.bot/concepts/architecture)
+Details: [Nodes](https://docs.molt.bot/nodes) · [macOS app](https://docs.molt.bot/platforms/macos) · [Gateway protocol](https://docs.molt.bot/concepts/architecture)
 
-## 代理到代理（sessions_* 工具）
+## Agent to Agent (sessions_* tools)
 
-- 使用这些工具来协调跨会话的工作，而无需在聊天界面之间跳转。
-- `sessions_list` — 发现活动会话（代理）及其元数据。
-- `sessions_history` — 获取会话的转录日志。
-- `sessions_send` — 向另一个会话发送消息；可选的回复 ping-pong + 公告步骤（`REPLY_SKIP`、`ANNOUNCE_SKIP`）。
+- Use these to coordinate work across sessions without jumping between chat surfaces.
+- `sessions_list` — discover active sessions (agents) and their metadata.
+- `sessions_history` — fetch transcript logs for a session.
+- `sessions_send` — message another session; optional reply‑back ping‑pong + announce step (`REPLY_SKIP`, `ANNOUNCE_SKIP`).
 
-详情：[会话工具](https://docs.molt.bot/concepts/session-tool)
+Details: [Session tools](https://docs.molt.bot/concepts/session-tool)
 
-## 技能注册表（ClawdHub）
+## Skills registry (ClawdHub)
 
-ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以自动搜索技能并根据需要拉取新技能。
+ClawdHub is a minimal skill registry. With ClawdHub enabled, the agent can search for skills automatically and pull in new ones as needed.
 
 [ClawdHub](https://ClawdHub.com)
 
-## 聊天命令
+## Chat commands
 
-在 WhatsApp/Telegram/Slack/Google Chat/Microsoft Teams/WebChat 中发送这些命令（群组命令仅限所有者）：
+Send these in WhatsApp/Telegram/Slack/Google Chat/Microsoft Teams/WebChat (group commands are owner-only):
 
-- `/status` — 紧凑的会话状态（模型 + token，可用时显示成本）
-- `/new` 或 `/reset` — 重置会话
-- `/compact` — 压缩会话上下文（摘要）
-- `/think <level>` — off|minimal|low|medium|high|xhigh（仅限 GPT-5.2 + Codex 模型）
+- `/status` — compact session status (model + tokens, cost when available)
+- `/new` or `/reset` — reset the session
+- `/compact` — compact session context (summary)
+- `/think <level>` — off|minimal|low|medium|high|xhigh (GPT-5.2 + Codex models only)
 - `/verbose on|off`
-- `/usage off|tokens|full` — 每响应使用情况页脚
-- `/restart` — 重启网关（群组中仅限所有者）
-- `/activation mention|always` — 群组激活切换（仅限群组）
+- `/usage off|tokens|full` — per-response usage footer
+- `/restart` — restart the gateway (owner-only in groups)
+- `/activation mention|always` — group activation toggle (groups only)
 
-## 应用（可选）
+## Apps (optional)
 
-仅网关就能提供出色的体验。所有应用都是可选的，并添加额外功能。
+The Gateway alone delivers a great experience. All apps are optional and add extra features.
 
-如果你计划构建/运行配套应用，请遵循以下平台运行手册。
+If you plan to build/run companion apps, follow the platform runbooks below.
 
-### macOS（Moltbot.app）（可选）
+### macOS (Moltbot.app) (optional)
 
-- 网关和健康的菜单栏控制。
-- 语音唤醒 + 按键通话覆盖层。
-- WebChat + 调试工具。
-- 通过 SSH 进行远程网关控制。
+- Menu bar control for the Gateway and health.
+- Voice Wake + push-to-talk overlay.
+- WebChat + debug tools.
+- Remote gateway control over SSH.
 
-注意：需要签名构建才能使 macOS 权限在重建后保持不变（参见 `docs/mac/permissions.md`）。
+Note: signed builds required for macOS permissions to stick across rebuilds (see `docs/mac/permissions.md`).
 
-### iOS 节点（可选）
+### iOS node (optional)
 
-- 通过网桥作为节点配对。
-- 语音触发转发 + 画布表面。
-- 通过 `moltbot nodes …` 控制。
+- Pairs as a node via the Bridge.
+- Voice trigger forwarding + Canvas surface.
+- Controlled via `moltbot nodes …`.
 
-运行手册：[iOS 连接](https://docs.molt.bot/platforms/ios)。
+Runbook: [iOS connect](https://docs.molt.bot/platforms/ios).
 
-### Android 节点（可选）
+### Android node (optional)
 
-- 通过与 iOS 相同的网桥 + 配对流程进行配对。
-- 暴露画布、相机和屏幕捕获命令。
-- 运行手册：[Android 连接](https://docs.molt.bot/platforms/android)。
+- Pairs via the same Bridge + pairing flow as iOS.
+- Exposes Canvas, Camera, and Screen capture commands.
+- Runbook: [Android connect](https://docs.molt.bot/platforms/android).
 
-## 代理工作区 + 技能
+## Agent workspace + skills
 
-- 工作区根目录：`~/clawd`（可通过 `agents.defaults.workspace` 配置）。
-- 注入的提示文件：`AGENTS.md`、`SOUL.md`、`TOOLS.md`。
-- 技能：`~/clawd/skills/<skill>/SKILL.md`。
+- Workspace root: `~/clawd` (configurable via `agents.defaults.workspace`).
+- Injected prompt files: `AGENTS.md`, `SOUL.md`, `TOOLS.md`.
+- Skills: `~/clawd/skills/<skill>/SKILL.md`.
 
-## 配置
+## Configuration
 
-最小化 `~/.clawdbot/moltbot.json`（模型 + 默认值）：
+Minimal `~/.clawdbot/moltbot.json` (model + defaults):
 
 ```json5
 {
@@ -311,26 +311,26 @@ ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以�
 }
 ```
 
-[完整配置参考（所有键 + 示例）。](https://docs.molt.bot/gateway/configuration)
+[Full configuration reference (all keys + examples).](https://docs.molt.bot/gateway/configuration)
 
-## 安全模型（重要）
+## Security model (important)
 
-- **默认：** 工具在主机上为 **main** 会话运行，因此代理在只有你使用时拥有完全访问权限。
-- **群组/频道安全：** 设置 `agents.defaults.sandbox.mode: "non-main"` 在每会话 Docker 沙箱中运行 **非主会话**（群组/频道）；bash 然后在这些会话的 Docker 中运行。
-- **沙箱默认值：** 允许列表 `bash`、`process`、`read`、`write`、`edit`、`sessions_list`、`sessions_history`、`sessions_send`、`sessions_spawn`；拒绝列表 `browser`、`canvas`、`nodes`、`cron`、`discord`、`gateway`。
+- **Default:** tools run on the host for the **main** session, so the agent has full access when it’s just you.
+- **Group/channel safety:** set `agents.defaults.sandbox.mode: "non-main"` to run **non‑main sessions** (groups/channels) inside per‑session Docker sandboxes; bash then runs in Docker for those sessions.
+- **Sandbox defaults:** allowlist `bash`, `process`, `read`, `write`, `edit`, `sessions_list`, `sessions_history`, `sessions_send`, `sessions_spawn`; denylist `browser`, `canvas`, `nodes`, `cron`, `discord`, `gateway`.
 
-详情：[安全指南](https://docs.molt.bot/gateway/security) · [Docker + 沙箱](https://docs.molt.bot/install/docker) · [沙箱配置](https://docs.molt.bot/gateway/configuration)
+Details: [Security guide](https://docs.molt.bot/gateway/security) · [Docker + sandboxing](https://docs.molt.bot/install/docker) · [Sandbox config](https://docs.molt.bot/gateway/configuration)
 
 ### [WhatsApp](https://docs.molt.bot/channels/whatsapp)
 
-- 链接设备：`pnpm moltbot channels login`（将凭据存储在 `~/.clawdbot/credentials` 中）。
-- 通过 `channels.whatsapp.allowFrom` 设置允许与助手对话的人。
-- 如果设置了 `channels.whatsapp.groups`，它将成为群组允许列表；包含 `"*"` 以允许所有。
+- Link the device: `pnpm moltbot channels login` (stores creds in `~/.clawdbot/credentials`).
+- Allowlist who can talk to the assistant via `channels.whatsapp.allowFrom`.
+- If `channels.whatsapp.groups` is set, it becomes a group allowlist; include `"*"` to allow all.
 
 ### [Telegram](https://docs.molt.bot/channels/telegram)
 
-- 设置 `TELEGRAM_BOT_TOKEN` 或 `channels.telegram.botToken`（环境变量优先）。
-- 可选：设置 `channels.telegram.groups`（使用 `channels.telegram.groups."*".requireMention`）；设置时，它是群组允许列表（包含 `"*"` 以允许所有）。还可以根据需要设置 `channels.telegram.allowFrom` 或 `channels.telegram.webhookUrl`。
+- Set `TELEGRAM_BOT_TOKEN` or `channels.telegram.botToken` (env wins).
+- Optional: set `channels.telegram.groups` (with `channels.telegram.groups."*".requireMention`); when set, it is a group allowlist (include `"*"` to allow all). Also `channels.telegram.allowFrom` or `channels.telegram.webhookUrl` as needed.
 
 ```json5
 {
@@ -344,12 +344,12 @@ ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以�
 
 ### [Slack](https://docs.molt.bot/channels/slack)
 
-- 设置 `SLACK_BOT_TOKEN` + `SLACK_APP_TOKEN`（或 `channels.slack.botToken` + `channels.slack.appToken`）。
+- Set `SLACK_BOT_TOKEN` + `SLACK_APP_TOKEN` (or `channels.slack.botToken` + `channels.slack.appToken`).
 
 ### [Discord](https://docs.molt.bot/channels/discord)
 
-- 设置 `DISCORD_BOT_TOKEN` 或 `channels.discord.token`（环境变量优先）。
-- 可选：设置 `commands.native`、`commands.text` 或 `commands.useAccessGroups`，以及根据需要设置 `channels.discord.dm.allowFrom`、`channels.discord.guilds` 或 `channels.discord.mediaMaxMb`。
+- Set `DISCORD_BOT_TOKEN` or `channels.discord.token` (env wins).
+- Optional: set `commands.native`, `commands.text`, or `commands.useAccessGroups`, plus `channels.discord.dm.allowFrom`, `channels.discord.guilds`, or `channels.discord.mediaMaxMb` as needed.
 
 ```json5
 {
@@ -363,23 +363,23 @@ ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以�
 
 ### [Signal](https://docs.molt.bot/channels/signal)
 
-- 需要 `signal-cli` 和 `channels.signal` 配置部分。
+- Requires `signal-cli` and a `channels.signal` config section.
 
 ### [iMessage](https://docs.molt.bot/channels/imessage)
 
-- 仅限 macOS；必须登录 Messages。
-- 如果设置了 `channels.imessage.groups`，它将成为群组允许列表；包含 `"*"` 以允许所有。
+- macOS only; Messages must be signed in.
+- If `channels.imessage.groups` is set, it becomes a group allowlist; include `"*"` to allow all.
 
 ### [Microsoft Teams](https://docs.molt.bot/channels/msteams)
 
-- 配置 Teams 应用 + Bot Framework，然后添加 `msteams` 配置部分。
-- 通过 `msteams.allowFrom` 设置允许对话的人；通过 `msteams.groupAllowFrom` 或 `msteams.groupPolicy: "open"` 进行群组访问。
+- Configure a Teams app + Bot Framework, then add a `msteams` config section.
+- Allowlist who can talk via `msteams.allowFrom`; group access via `msteams.groupAllowFrom` or `msteams.groupPolicy: "open"`.
 
 ### [WebChat](https://docs.molt.bot/web/webchat)
 
-- 使用网关 WebSocket；没有单独的 WebChat 端口/配置。
+- Uses the Gateway WebSocket; no separate WebChat port/config.
 
-浏览器控制（可选）：
+Browser control (optional):
 
 ```json5
 {
@@ -390,92 +390,92 @@ ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以�
 }
 ```
 
-## 文档
+## Docs
 
-当你完成入门流程并想要更深入的参考时使用这些。
-- [从文档索引开始，了解导航和"什么在哪里"。](https://docs.molt.bot)
-- [阅读架构概述以了解网关 + 协议模型。](https://docs.molt.bot/concepts/architecture)
-- [当你需要每个键和示例时，使用完整的配置参考。](https://docs.molt.bot/gateway/configuration)
-- [按照操作运行手册运行网关。](https://docs.molt.bot/gateway)
-- [了解控制 UI/Web 界面如何工作以及如何安全地暴露它们。](https://docs.molt.bot/web)
-- [了解通过 SSH 隧道或 tailnet 进行远程访问。](https://docs.molt.bot/gateway/remote)
-- [按照入门向导流程进行引导式设置。](https://docs.molt.bot/start/wizard)
-- [通过 webhook 界面连接外部触发器。](https://docs.molt.bot/automation/webhook)
-- [设置 Gmail Pub/Sub 触发器。](https://docs.molt.bot/automation/gmail-pubsub)
-- [了解 macOS 菜单栏配套详细信息。](https://docs.molt.bot/platforms/mac/menu-bar)
-- [平台指南：Windows (WSL2)](https://docs.molt.bot/platforms/windows)、[Linux](https://docs.molt.bot/platforms/linux)、[macOS](https://docs.molt.bot/platforms/macos)、[iOS](https://docs.molt.bot/platforms/ios)、[Android](https://docs.molt.bot/platforms/android)
-- [使用故障排除指南调试常见故障。](https://docs.molt.bot/channels/troubleshooting)
-- [在暴露任何内容之前查看安全指南。](https://docs.molt.bot/gateway/security)
+Use these when you’re past the onboarding flow and want the deeper reference.
+- [Start with the docs index for navigation and “what’s where.”](https://docs.molt.bot)
+- [Read the architecture overview for the gateway + protocol model.](https://docs.molt.bot/concepts/architecture)
+- [Use the full configuration reference when you need every key and example.](https://docs.molt.bot/gateway/configuration)
+- [Run the Gateway by the book with the operational runbook.](https://docs.molt.bot/gateway)
+- [Learn how the Control UI/Web surfaces work and how to expose them safely.](https://docs.molt.bot/web)
+- [Understand remote access over SSH tunnels or tailnets.](https://docs.molt.bot/gateway/remote)
+- [Follow the onboarding wizard flow for a guided setup.](https://docs.molt.bot/start/wizard)
+- [Wire external triggers via the webhook surface.](https://docs.molt.bot/automation/webhook)
+- [Set up Gmail Pub/Sub triggers.](https://docs.molt.bot/automation/gmail-pubsub)
+- [Learn the macOS menu bar companion details.](https://docs.molt.bot/platforms/mac/menu-bar)
+- [Platform guides: Windows (WSL2)](https://docs.molt.bot/platforms/windows), [Linux](https://docs.molt.bot/platforms/linux), [macOS](https://docs.molt.bot/platforms/macos), [iOS](https://docs.molt.bot/platforms/ios), [Android](https://docs.molt.bot/platforms/android)
+- [Debug common failures with the troubleshooting guide.](https://docs.molt.bot/channels/troubleshooting)
+- [Review security guidance before exposing anything.](https://docs.molt.bot/gateway/security)
 
-## 高级文档（发现 + 控制）
+## Advanced docs (discovery + control)
 
-- [发现 + 传输](https://docs.molt.bot/gateway/discovery)
+- [Discovery + transports](https://docs.molt.bot/gateway/discovery)
 - [Bonjour/mDNS](https://docs.molt.bot/gateway/bonjour)
-- [网关配对](https://docs.molt.bot/gateway/pairing)
-- [远程网关 README](https://docs.molt.bot/gateway/remote-gateway-readme)
-- [控制 UI](https://docs.molt.bot/web/control-ui)
-- [仪表板](https://docs.molt.bot/web/dashboard)
+- [Gateway pairing](https://docs.molt.bot/gateway/pairing)
+- [Remote gateway README](https://docs.molt.bot/gateway/remote-gateway-readme)
+- [Control UI](https://docs.molt.bot/web/control-ui)
+- [Dashboard](https://docs.molt.bot/web/dashboard)
 
-## 运维 & 故障排除
+## Operations & troubleshooting
 
-- [健康检查](https://docs.molt.bot/gateway/health)
-- [网关锁](https://docs.molt.bot/gateway/gateway-lock)
-- [后台进程](https://docs.molt.bot/gateway/background-process)
-- [浏览器故障排除 (Linux)](https://docs.molt.bot/tools/browser-linux-troubleshooting)
-- [日志记录](https://docs.molt.bot/logging)
+- [Health checks](https://docs.molt.bot/gateway/health)
+- [Gateway lock](https://docs.molt.bot/gateway/gateway-lock)
+- [Background process](https://docs.molt.bot/gateway/background-process)
+- [Browser troubleshooting (Linux)](https://docs.molt.bot/tools/browser-linux-troubleshooting)
+- [Logging](https://docs.molt.bot/logging)
 
-## 深入探讨
+## Deep dives
 
-- [代理循环](https://docs.molt.bot/concepts/agent-loop)
-- [在线状态](https://docs.molt.bot/concepts/presence)
-- [TypeBox 模式](https://docs.molt.bot/concepts/typebox)
-- [RPC 适配器](https://docs.molt.bot/reference/rpc)
-- [队列](https://docs.molt.bot/concepts/queue)
+- [Agent loop](https://docs.molt.bot/concepts/agent-loop)
+- [Presence](https://docs.molt.bot/concepts/presence)
+- [TypeBox schemas](https://docs.molt.bot/concepts/typebox)
+- [RPC adapters](https://docs.molt.bot/reference/rpc)
+- [Queue](https://docs.molt.bot/concepts/queue)
 
-## 工作区 & 技能
+## Workspace & skills
 
-- [技能配置](https://docs.molt.bot/tools/skills-config)
-- [默认 AGENTS](https://docs.molt.bot/reference/AGENTS.default)
-- [模板：AGENTS](https://docs.molt.bot/reference/templates/AGENTS)
-- [模板：BOOTSTRAP](https://docs.molt.bot/reference/templates/BOOTSTRAP)
-- [模板：IDENTITY](https://docs.molt.bot/reference/templates/IDENTITY)
-- [模板：SOUL](https://docs.molt.bot/reference/templates/SOUL)
-- [模板：TOOLS](https://docs.molt.bot/reference/templates/TOOLS)
-- [模板：USER](https://docs.molt.bot/reference/templates/USER)
+- [Skills config](https://docs.molt.bot/tools/skills-config)
+- [Default AGENTS](https://docs.molt.bot/reference/AGENTS.default)
+- [Templates: AGENTS](https://docs.molt.bot/reference/templates/AGENTS)
+- [Templates: BOOTSTRAP](https://docs.molt.bot/reference/templates/BOOTSTRAP)
+- [Templates: IDENTITY](https://docs.molt.bot/reference/templates/IDENTITY)
+- [Templates: SOUL](https://docs.molt.bot/reference/templates/SOUL)
+- [Templates: TOOLS](https://docs.molt.bot/reference/templates/TOOLS)
+- [Templates: USER](https://docs.molt.bot/reference/templates/USER)
 
-## 平台内部
+## Platform internals
 
-- [macOS 开发设置](https://docs.molt.bot/platforms/mac/dev-setup)
-- [macOS 菜单栏](https://docs.molt.bot/platforms/mac/menu-bar)
-- [macOS 语音唤醒](https://docs.molt.bot/platforms/mac/voicewake)
-- [iOS 节点](https://docs.molt.bot/platforms/ios)
-- [Android 节点](https://docs.molt.bot/platforms/android)
+- [macOS dev setup](https://docs.molt.bot/platforms/mac/dev-setup)
+- [macOS menu bar](https://docs.molt.bot/platforms/mac/menu-bar)
+- [macOS voice wake](https://docs.molt.bot/platforms/mac/voicewake)
+- [iOS node](https://docs.molt.bot/platforms/ios)
+- [Android node](https://docs.molt.bot/platforms/android)
 - [Windows (WSL2)](https://docs.molt.bot/platforms/windows)
-- [Linux 应用](https://docs.molt.bot/platforms/linux)
+- [Linux app](https://docs.molt.bot/platforms/linux)
 
-## 邮件钩子（Gmail）
+## Email hooks (Gmail)
 
 - [docs.molt.bot/gmail-pubsub](https://docs.molt.bot/automation/gmail-pubsub)
 
 ## Molty
 
-Moltbot 是为 **Molty** 构建的，一个太空龙虾 AI 助手。🦞
-由 Peter Steinberger 和社区构建。
+Moltbot was built for **Molty**, a space lobster AI assistant. 🦞
+by Peter Steinberger and the community.
 
 - [clawd.me](https://clawd.me)
 - [soul.md](https://soul.md)
 - [steipete.me](https://steipete.me)
 - [@moltbot](https://x.com/moltbot)
 
-## 社区
+## Community
 
-参见 [CONTRIBUTING.md](CONTRIBUTING.md) 了解指南、维护者以及如何提交 PR。
-欢迎 AI/vibe 编码的 PR！🤖
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, maintainers, and how to submit PRs.
+AI/vibe-coded PRs welcome! 🤖
 
-特别感谢 [Mario Zechner](https://mariozechner.at/) 的支持以及
-[pi-mono](https://github.com/badlogic/pi-mono)。
+Special thanks to [Mario Zechner](https://mariozechner.at/) for his support and for
+[pi-mono](https://github.com/badlogic/pi-mono).
 
-感谢所有 clawtributors：
+Thanks to all clawtributors:
 
 <p align="left">
   <a href="https://github.com/steipete"><img src="https://avatars.githubusercontent.com/u/58493?v=4&s=48" width="48" height="48" alt="steipete" title="steipete"/></a> <a href="https://github.com/plum-dawg"><img src="https://avatars.githubusercontent.com/u/5909950?v=4&s=48" width="48" height="48" alt="plum-dawg" title="plum-dawg"/></a> <a href="https://github.com/bohdanpodvirnyi"><img src="https://avatars.githubusercontent.com/u/31819391?v=4&s=48" width="48" height="48" alt="bohdanpodvirnyi" title="bohdanpodvirnyi"/></a> <a href="https://github.com/iHildy"><img src="https://avatars.githubusercontent.com/u/25069719?v=4&s=48" width="48" height="48" alt="iHildy" title="iHildy"/></a> <a href="https://github.com/jaydenfyi"><img src="https://avatars.githubusercontent.com/u/213395523?v=4&s=48" width="48" height="48" alt="jaydenfyi" title="jaydenfyi"/></a> <a href="https://github.com/joaohlisboa"><img src="https://avatars.githubusercontent.com/u/8200873?v=4&s=48" width="48" height="48" alt="joaohlisboa" title="joaohlisboa"/></a> <a href="https://github.com/mneves75"><img src="https://avatars.githubusercontent.com/u/2423436?v=4&s=48" width="48" height="48" alt="mneves75" title="mneves75"/></a> <a href="https://github.com/MatthieuBizien"><img src="https://avatars.githubusercontent.com/u/173090?v=4&s=48" width="48" height="48" alt="MatthieuBizien" title="MatthieuBizien"/></a> <a href="https://github.com/MaudeBot"><img src="https://avatars.githubusercontent.com/u/255777700?v=4&s=48" width="48" height="48" alt="MaudeBot" title="MaudeBot"/></a> <a href="https://github.com/Glucksberg"><img src="https://avatars.githubusercontent.com/u/80581902?v=4&s=48" width="48" height="48" alt="Glucksberg" title="Glucksberg"/></a>
