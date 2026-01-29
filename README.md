@@ -21,22 +21,22 @@
 
 如果你想要一个个人的、单用户的助手，感觉本地、快速且始终在线，这就是它。
 
-[网站](https://molt.bot) · [文档](https://docs.molt.bot) · [快速入门](https://docs.molt.bot/start/getting-started) · [更新](https://docs.molt.bot/install/updating) · [展示](https://docs.molt.bot/start/showcase) · [常见问题](https://docs.molt.bot/start/faq) · [向导](https://docs.molt.bot/start/wizard) · [Nix](https://github.com/moltbot/nix-clawdbot) · [Docker](https://docs.molt.bot/install/docker) · [Discord](https://discord.gg/clawd)
+[网站](https://molt.bot) · [文档](docs-cn/index.md) · [快速入门](docs-cn/start/getting-started.md) · [更新](docs-cn/install/updating.md) · [展示](docs-cn/start/showcase.md) · [常见问题](docs-cn/start/faq.md) · [向导](docs-cn/start/wizard.md) · [Nix](https://github.com/moltbot/nix-clawdbot) · [Docker](docs-cn/install/docker.md) · [Discord](https://discord.gg/clawd)
 
 推荐设置：运行入门向导（`moltbot onboard`）。它会引导你完成网关、工作区、频道和技能的设置。CLI 向导是推荐的路径，适用于 **macOS、Linux 和 Windows（通过 WSL2；强烈推荐）**。
 支持 npm、pnpm 或 bun。
-新安装？从这里开始：[快速入门](https://docs.molt.bot/start/getting-started)
+新安装？从这里开始：[快速入门](docs-cn/start/getting-started.md)
 
 **订阅（OAuth）：**
 - **[Anthropic](https://www.anthropic.com/)** (Claude Pro/Max)
 - **[OpenAI](https://openai.com/)** (ChatGPT/Codex)
 
-模型说明：虽然支持任何模型，但我强烈推荐 **Anthropic Pro/Max (100/200) + Opus 4.5** 以获得长上下文强度和更好的提示注入抵抗能力。参见[入门指南](https://docs.molt.bot/start/onboarding)。
+模型说明：虽然支持任何模型，但我强烈推荐 **Anthropic Pro/Max (100/200) + Opus 4.5** 以获得长上下文强度和更好的提示注入抵抗能力。参见[入门指南](docs-cn/start/onboarding.md)。
 
 ## 模型（选择 + 认证）
 
-- 模型配置 + CLI：[模型](https://docs.molt.bot/concepts/models)
-- 认证配置轮换（OAuth vs API 密钥）+ 故障转移：[模型故障转移](https://docs.molt.bot/concepts/model-failover)
+- 模型配置 + CLI：[模型](docs-cn/concepts/models.md)
+- 认证配置轮换（OAuth vs API 密钥）+ 故障转移：[模型故障转移](docs-cn/concepts/model-failover.md)
 
 ## 安装（推荐）
 
@@ -56,7 +56,7 @@ moltbot onboard --install-daemon
 
 运行时要求：**Node ≥22**。
 
-完整的新手指南（认证、配对、频道）：[快速入门](https://docs.molt.bot/start/getting-started)
+完整的新手指南（认证、配对、频道）：[快速入门](docs-cn/start/getting-started.md)
 
 ```bash
 moltbot onboard --install-daemon
@@ -70,7 +70,7 @@ moltbot message send --to +1234567890 --message "来自 Moltbot 的问候"
 moltbot agent --message "发货清单" --thinking high
 ```
 
-正在升级？[更新指南](https://docs.molt.bot/install/updating)（并运行 `moltbot doctor`）。
+正在升级？[更新指南](docs-cn/install/updating.md)（并运行 `moltbot doctor`）。
 
 ## 开发频道
 
@@ -79,7 +79,7 @@ moltbot agent --message "发货清单" --thinking high
 - **dev**：`main` 分支的最新状态，npm 分发标签 `dev`（发布时）。
 
 切换频道（git + npm）：`moltbot update --channel stable|beta|dev`。
-详情：[开发频道](https://docs.molt.bot/install/development-channels)。
+详情：[开发频道](docs-cn/install/development-channels.md)。
 
 ## 从源码构建（开发）
 
@@ -105,7 +105,7 @@ pnpm gateway:watch
 
 Moltbot 连接到真实的消息界面。将入站私信视为**不受信任的输入**。
 
-完整安全指南：[安全](https://docs.molt.bot/gateway/security)
+完整安全指南：[安全](docs-cn/gateway/security.md)
 
 Telegram/WhatsApp/Signal/iMessage/Microsoft Teams/Discord/Google Chat/Slack 上的默认行为：
 - **私信配对**（`dmPolicy="pairing"` / `channels.discord.dm.policy="pairing"` / `channels.slack.dm.policy="pairing"`）：未知发送者会收到一个简短的配对代码，机器人不会处理他们的消息。
@@ -116,14 +116,14 @@ Telegram/WhatsApp/Signal/iMessage/Microsoft Teams/Discord/Google Chat/Slack 上�
 
 ## 亮点
 
-- **[本地优先网关](https://docs.molt.bot/gateway)** — 会话、频道、工具和事件的单一控制平面。
-- **[多频道收件箱](https://docs.molt.bot/channels)** — WhatsApp、Telegram、Slack、Discord、Google Chat、Signal、iMessage、BlueBubbles、Microsoft Teams、Matrix、Zalo、Zalo Personal、WebChat、macOS、iOS/Android。
-- **[多代理路由](https://docs.molt.bot/gateway/configuration)** — 将入站频道/账户/对等点路由到隔离的代理（工作区 + 每代理会话）。
-- **[语音唤醒](https://docs.molt.bot/nodes/voicewake) + [对话模式](https://docs.molt.bot/nodes/talk)** — 适用于 macOS/iOS/Android 的始终在线语音，配合 ElevenLabs。
-- **[实时画布](https://docs.molt.bot/platforms/mac/canvas)** — 由代理驱动的视觉工作空间，具有 [A2UI](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui)。
-- **[一流工具](https://docs.molt.bot/tools)** — 浏览器、画布、节点、cron、会话以及 Discord/Slack 操作。
-- **[配套应用](https://docs.molt.bot/platforms/macos)** — macOS 菜单栏应用 + iOS/Android [节点](https://docs.molt.bot/nodes)。
-- **[入门](https://docs.molt.bot/start/wizard) + [技能](https://docs.molt.bot/tools/skills)** — 向导驱动的设置，包含捆绑/管理/工作区技能。
+- **[本地优先网关](docs-cn/gateway/index.md)** — 会话、频道、工具和事件的单一控制平面。
+- **[多频道收件箱](docs-cn/channels/index.md)** — WhatsApp、Telegram、Slack、Discord、Google Chat、Signal、iMessage、BlueBubbles、Microsoft Teams、Matrix、Zalo、Zalo Personal、WebChat、macOS、iOS/Android。
+- **[多代理路由](docs-cn/gateway/configuration.md)** — 将入站频道/账户/对等点路由到隔离的代理（工作区 + 每代理会话）。
+- **[语音唤醒](docs-cn/nodes/voicewake.md) + [对话模式](docs-cn/nodes/talk.md)** — 适用于 macOS/iOS/Android 的始终在线语音，配合 ElevenLabs。
+- **[实时画布](docs-cn/platforms/mac/canvas.md)** — 由代理驱动的视觉工作空间，具有 [A2UI](docs-cn/platforms/mac/canvas#canvas-a2ui.md)。
+- **[一流工具](docs-cn/tools/index.md)** — 浏览器、画布、节点、cron、会话以及 Discord/Slack 操作。
+- **[配套应用](docs-cn/platforms/macos.md)** — macOS 菜单栏应用 + iOS/Android [节点](docs-cn/nodes/index.md)。
+- **[入门](docs-cn/start/wizard.md) + [技能](docs-cn/tools/skills.md)** — 向导驱动的设置，包含捆绑/管理/工作区技能。
 
 ## Star 历史
 
@@ -132,40 +132,40 @@ Telegram/WhatsApp/Signal/iMessage/Microsoft Teams/Discord/Google Chat/Slack 上�
 ## 我们到目前为止构建的所有内容
 
 ### 核心平台
-- [网关 WS 控制平面](https://docs.molt.bot/gateway)，包含会话、在线状态、配置、cron、webhook、[控制 UI](https://docs.molt.bot/web)和[画布主机](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui)。
-- [CLI 界面](https://docs.molt.bot/tools/agent-send)：网关、代理、发送、[向导](https://docs.molt.bot/start/wizard)和[医生](https://docs.molt.bot/gateway/doctor)。
-- [Pi 代理运行时](https://docs.molt.bot/concepts/agent)（RPC 模式），支持工具流和块流。
-- [会话模型](https://docs.molt.bot/concepts/session)：`main` 用于直接聊天、群组隔离、激活模式、队列模式、回复。群组规则：[群组](https://docs.molt.bot/concepts/groups)。
-- [媒体管道](https://docs.molt.bot/nodes/images)：图片/音频/视频、转录钩子、大小限制、临时文件生命周期。音频详情：[音频](https://docs.molt.bot/nodes/audio)。
+- [网关 WS 控制平面](docs-cn/gateway/index.md)，包含会话、在线状态、配置、cron、webhook、[控制 UI](docs-cn/web/index.md)和[画布主机](docs-cn/platforms/mac/canvas#canvas-a2ui.md)。
+- [CLI 界面](docs-cn/tools/agent-send.md)：网关、代理、发送、[向导](docs-cn/start/wizard.md)和[医生](docs-cn/gateway/doctor.md)。
+- [Pi 代理运行时](docs-cn/concepts/agent.md)（RPC 模式），支持工具流和块流。
+- [会话模型](docs-cn/concepts/session.md)：`main` 用于直接聊天、群组隔离、激活模式、队列模式、回复。群组规则：[群组](docs-cn/concepts/groups.md)。
+- [媒体管道](docs-cn/nodes/images.md)：图片/音频/视频、转录钩子、大小限制、临时文件生命周期。音频详情：[音频](docs-cn/nodes/audio.md)。
 
 ### 频道
-- [频道](https://docs.molt.bot/channels)：[WhatsApp](https://docs.molt.bot/channels/whatsapp)（Baileys）、[Telegram](https://docs.molt.bot/channels/telegram)（grammY）、[Slack](https://docs.molt.bot/channels/slack)（Bolt）、[Discord](https://docs.molt.bot/channels/discord)（discord.js）、[Google Chat](https://docs.molt.bot/channels/googlechat)（Chat API）、[Signal](https://docs.molt.bot/channels/signal)（signal-cli）、[iMessage](https://docs.molt.bot/channels/imessage)（imsg）、[BlueBubbles](https://docs.molt.bot/channels/bluebubbles)（扩展）、[Microsoft Teams](https://docs.molt.bot/channels/msteams)（扩展）、[Matrix](https://docs.molt.bot/channels/matrix)（扩展）、[Zalo](https://docs.molt.bot/channels/zalo)（扩展）、[Zalo Personal](https://docs.molt.bot/channels/zalouser)（扩展）、[WebChat](https://docs.molt.bot/web/webchat)。
-- [群组路由](https://docs.molt.bot/concepts/group-messages)：提及过滤、回复标签、每频道分块和路由。频道规则：[频道](https://docs.molt.bot/channels)。
+- [频道](docs-cn/channels/index.md)：[WhatsApp](docs-cn/channels/whatsapp.md)（Baileys）、[Telegram](docs-cn/channels/telegram.md)（grammY）、[Slack](docs-cn/channels/slack.md)（Bolt）、[Discord](docs-cn/channels/discord.md)（discord.js）、[Google Chat](docs-cn/channels/googlechat.md)（Chat API）、[Signal](docs-cn/channels/signal.md)（signal-cli）、[iMessage](docs-cn/channels/imessage.md)（imsg）、[BlueBubbles](docs-cn/channels/bluebubbles.md)（扩展）、[Microsoft Teams](docs-cn/channels/msteams.md)（扩展）、[Matrix](docs-cn/channels/matrix.md)（扩展）、[Zalo](docs-cn/channels/zalo.md)（扩展）、[Zalo Personal](docs-cn/channels/zalouser.md)（扩展）、[WebChat](docs-cn/web/webchat.md)。
+- [群组路由](docs-cn/concepts/group-messages.md)：提及过滤、回复标签、每频道分块和路由。频道规则：[频道](docs-cn/channels/index.md)。
 
 ### 应用 + 节点
-- [macOS 应用](https://docs.molt.bot/platforms/macos)：菜单栏控制平面、[语音唤醒](https://docs.molt.bot/nodes/voicewake)/PTT、[对话模式](https://docs.molt.bot/nodes/talk)覆盖层、[WebChat](https://docs.molt.bot/web/webchat)、调试工具、[远程网关](https://docs.molt.bot/gateway/remote)控制。
-- [iOS 节点](https://docs.molt.bot/platforms/ios)：[画布](https://docs.molt.bot/platforms/mac/canvas)、[语音唤醒](https://docs.molt.bot/nodes/voicewake)、[对话模式](https://docs.molt.bot/nodes/talk)、相机、屏幕录制、Bonjour 配对。
-- [Android 节点](https://docs.molt.bot/platforms/android)：[画布](https://docs.molt.bot/platforms/mac/canvas)、[对话模式](https://docs.molt.bot/nodes/talk)、相机、屏幕录制、可选的 SMS。
-- [macOS 节点模式](https://docs.molt.bot/nodes)：system.run/notify + 画布/相机暴露。
+- [macOS 应用](docs-cn/platforms/macos.md)：菜单栏控制平面、[语音唤醒](docs-cn/nodes/voicewake.md)/PTT、[对话模式](docs-cn/nodes/talk.md)覆盖层、[WebChat](docs-cn/web/webchat.md)、调试工具、[远程网关](docs-cn/gateway/remote.md)控制。
+- [iOS 节点](docs-cn/platforms/ios.md)：[画布](docs-cn/platforms/mac/canvas.md)、[语音唤醒](docs-cn/nodes/voicewake.md)、[对话模式](docs-cn/nodes/talk.md)、相机、屏幕录制、Bonjour 配对。
+- [Android 节点](docs-cn/platforms/android.md)：[画布](docs-cn/platforms/mac/canvas.md)、[对话模式](docs-cn/nodes/talk.md)、相机、屏幕录制、可选的 SMS。
+- [macOS 节点模式](docs-cn/nodes/index.md)：system.run/notify + 画布/相机暴露。
 
 ### 工具 + 自动化
-- [浏览器控制](https://docs.molt.bot/tools/browser)：专用的 moltbot Chrome/Chromium、快照、操作、上传、配置文件。
-- [画布](https://docs.molt.bot/platforms/mac/canvas)：[A2UI](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui)推送/重置、eval、快照。
-- [节点](https://docs.molt.bot/nodes)：相机抓拍/剪辑、屏幕录制、[location.get](https://docs.molt.bot/nodes/location-command)、通知。
-- [Cron + 唤醒](https://docs.molt.bot/automation/cron-jobs)；[webhook](https://docs.molt.bot/automation/webhook)；[Gmail Pub/Sub](https://docs.molt.bot/automation/gmail-pubsub)。
-- [技能平台](https://docs.molt.bot/tools/skills)：捆绑、管理和工作区技能，具有安装门控 + UI。
+- [浏览器控制](docs-cn/tools/browser.md)：专用的 moltbot Chrome/Chromium、快照、操作、上传、配置文件。
+- [画布](docs-cn/platforms/mac/canvas.md)：[A2UI](docs-cn/platforms/mac/canvas#canvas-a2ui.md)推送/重置、eval、快照。
+- [节点](docs-cn/nodes/index.md)：相机抓拍/剪辑、屏幕录制、[location.get](docs-cn/nodes/location-command.md)、通知。
+- [Cron + 唤醒](docs-cn/automation/cron-jobs.md)；[webhook](docs-cn/automation/webhook.md)；[Gmail Pub/Sub](docs-cn/automation/gmail-pubsub.md)。
+- [技能平台](docs-cn/tools/skills.md)：捆绑、管理和工作区技能，具有安装门控 + UI。
 
 ### 运行时 + 安全
-- [频道路由](https://docs.molt.bot/concepts/channel-routing)、[重试策略](https://docs.molt.bot/concepts/retry)和[流式传输/分块](https://docs.molt.bot/concepts/streaming)。
-- [在线状态](https://docs.molt.bot/concepts/presence)、[输入指示器](https://docs.molt.bot/concepts/typing-indicators)和[使用跟踪](https://docs.molt.bot/concepts/usage-tracking)。
-- [模型](https://docs.molt.bot/concepts/models)、[模型故障转移](https://docs.molt.bot/concepts/model-failover)和[会话修剪](https://docs.molt.bot/concepts/session-pruning)。
-- [安全](https://docs.molt.bot/gateway/security)和[故障排除](https://docs.molt.bot/channels/troubleshooting)。
+- [频道路由](docs-cn/concepts/channel-routing.md)、[重试策略](docs-cn/concepts/retry.md)和[流式传输/分块](docs-cn/concepts/streaming.md)。
+- [在线状态](docs-cn/concepts/presence.md)、[输入指示器](docs-cn/concepts/typing-indicators.md)和[使用跟踪](docs-cn/concepts/usage-tracking.md)。
+- [模型](docs-cn/concepts/models.md)、[模型故障转移](docs-cn/concepts/model-failover.md)和[会话修剪](docs-cn/concepts/session-pruning.md)。
+- [安全](docs-cn/gateway/security.md)和[故障排除](docs-cn/channels/troubleshooting.md)。
 
 ### 运维 + 打包
-- 直接从网关提供[控制 UI](https://docs.molt.bot/web) + [WebChat](https://docs.molt.bot/web/webchat)。
-- [Tailscale Serve/Funnel](https://docs.molt.bot/gateway/tailscale)或[SSH 隧道](https://docs.molt.bot/gateway/remote)，带有令牌/密码认证。
-- [Nix 模式](https://docs.molt.bot/install/nix)用于声明性配置；基于[Docker](https://docs.molt.bot/install/docker)的安装。
-- [医生](https://docs.molt.bot/gateway/doctor)迁移、[日志记录](https://docs.molt.bot/logging)。
+- 直接从网关提供[控制 UI](docs-cn/web/index.md) + [WebChat](docs-cn/web/webchat.md)。
+- [Tailscale Serve/Funnel](docs-cn/gateway/tailscale.md)或[SSH 隧道](docs-cn/gateway/remote.md)，带有令牌/密码认证。
+- [Nix 模式](docs-cn/install/nix.md)用于声明性配置；基于[Docker](docs-cn/install/docker.md)的安装。
+- [医生](docs-cn/gateway/doctor.md)迁移、[日志记录](docs-cn/logging.md)。
 
 ## 工作原理（简述）
 
@@ -188,12 +188,12 @@ WhatsApp / Telegram / Slack / Discord / Google Chat / Signal / iMessage / BlueBu
 
 ## 关键子系统
 
-- **[网关 WebSocket 网络](https://docs.molt.bot/concepts/architecture)** — 客户端、工具和事件的单一 WS 控制平面（加上运维：[网关运行手册](https://docs.molt.bot/gateway)）。
-- **[Tailscale 暴露](https://docs.molt.bot/gateway/tailscale)** — 用于网关仪表板 + WS 的 Serve/Funnel（远程访问：[远程](https://docs.molt.bot/gateway/remote)）。
-- **[浏览器控制](https://docs.molt.bot/tools/browser)** — 由 moltbot 管理的 Chrome/Chromium，具有 CDP 控制。
-- **[画布 + A2UI](https://docs.molt.bot/platforms/mac/canvas)** — 由代理驱动的视觉工作空间（A2UI 主机：[画布/A2UI](https://docs.molt.bot/platforms/mac/canvas#canvas-a2ui)）。
-- **[语音唤醒](https://docs.molt.bot/nodes/voicewake) + [对话模式](https://docs.molt.bot/nodes/talk)** — 始终在线的语音和连续对话。
-- **[节点](https://docs.molt.bot/nodes)** — 画布、相机抓拍/剪辑、屏幕录制、`location.get`、通知，加上仅限 macOS 的 `system.run`/`system.notify`。
+- **[网关 WebSocket 网络](docs-cn/concepts/architecture.md)** — 客户端、工具和事件的单一 WS 控制平面（加上运维：[网关运行手册](docs-cn/gateway/index.md)）。
+- **[Tailscale 暴露](docs-cn/gateway/tailscale.md)** — 用于网关仪表板 + WS 的 Serve/Funnel（远程访问：[远程](docs-cn/gateway/remote.md)）。
+- **[浏览器控制](docs-cn/tools/browser.md)** — 由 moltbot 管理的 Chrome/Chromium，具有 CDP 控制。
+- **[画布 + A2UI](docs-cn/platforms/mac/canvas.md)** — 由代理驱动的视觉工作空间（A2UI 主机：[画布/A2UI](docs-cn/platforms/mac/canvas#canvas-a2ui.md)）。
+- **[语音唤醒](docs-cn/nodes/voicewake.md) + [对话模式](docs-cn/nodes/talk.md)** — 始终在线的语音和连续对话。
+- **[节点](docs-cn/nodes/index.md)** — 画布、相机抓拍/剪辑、屏幕录制、`location.get`、通知，加上仅限 macOS 的 `system.run`/`system.notify`。
 
 ## Tailscale 访问（网关仪表板）
 
@@ -209,7 +209,7 @@ Moltbot 可以自动配置 Tailscale **Serve**（仅限 tailnet）或 **Funnel**
 - 除非设置了 `gateway.auth.mode: "password"`，否则 Funnel 将拒绝启动。
 - 可选：`gateway.tailscale.resetOnExit` 在关闭时撤消 Serve/Funnel。
 
-详情：[Tailscale 指南](https://docs.molt.bot/gateway/tailscale) · [Web 界面](https://docs.molt.bot/web)
+详情：[Tailscale 指南](docs-cn/gateway/tailscale.md) · [Web 界面](docs-cn/web/index.md)
 
 ## 远程网关（Linux 很棒）
 
@@ -219,7 +219,7 @@ Moltbot 可以自动配置 Tailscale **Serve**（仅限 tailnet）或 **Funnel**
 - **设备节点**通过 `node.invoke` 运行设备本地操作（`system.run`、相机、屏幕录制、通知）。
 简而言之：exec 运行在网关所在的位置；设备操作运行在设备所在的位置。
 
-详情：[远程访问](https://docs.molt.bot/gateway/remote) · [节点](https://docs.molt.bot/nodes) · [安全](https://docs.molt.bot/gateway/security)
+详情：[远程访问](docs-cn/gateway/remote.md) · [节点](docs-cn/nodes/index.md) · [安全](docs-cn/gateway/security.md)
 
 ## 通过网关协议获取 macOS 权限
 
@@ -234,7 +234,7 @@ macOS 应用可以在**节点模式**下运行，并通过网关 WebSocket（`no
 - 使用 `/elevated on|off` 在启用 + 加入允许列表时切换每会话的提升访问。
 - 网关通过 `sessions.patch`（WS 方法）持久化每会话切换， alongside `thinkingLevel`、`verboseLevel`、`model`、`sendPolicy` 和 `groupActivation`。
 
-详情：[节点](https://docs.molt.bot/nodes) · [macOS 应用](https://docs.molt.bot/platforms/macos) · [网关协议](https://docs.molt.bot/concepts/architecture)
+详情：[节点](docs-cn/nodes/index.md) · [macOS 应用](docs-cn/platforms/macos.md) · [网关协议](docs-cn/concepts/architecture.md)
 
 ## 代理到代理（sessions_* 工具）
 
@@ -243,7 +243,7 @@ macOS 应用可以在**节点模式**下运行，并通过网关 WebSocket（`no
 - `sessions_history` — 获取会话的转录日志。
 - `sessions_send` — 向另一个会话发送消息；可选的回复 ping-pong + 公告步骤（`REPLY_SKIP`、`ANNOUNCE_SKIP`）。
 
-详情：[会话工具](https://docs.molt.bot/concepts/session-tool)
+详情：[会话工具](docs-cn/concepts/session-tool.md)
 
 ## 技能注册表（ClawdHub）
 
@@ -285,13 +285,13 @@ ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以�
 - 语音触发转发 + 画布表面。
 - 通过 `moltbot nodes …` 控制。
 
-运行手册：[iOS 连接](https://docs.molt.bot/platforms/ios)。
+运行手册：[iOS 连接](docs-cn/platforms/ios.md)。
 
 ### Android 节点（可选）
 
 - 通过与 iOS 相同的网桥 + 配对流程进行配对。
 - 暴露画布、相机和屏幕捕获命令。
-- 运行手册：[Android 连接](https://docs.molt.bot/platforms/android)。
+- 运行手册：[Android 连接](docs-cn/platforms/android.md)。
 
 ## 代理工作区 + 技能
 
@@ -311,7 +311,7 @@ ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以�
 }
 ```
 
-[完整配置参考（所有键 + 示例）。](https://docs.molt.bot/gateway/configuration)
+[完整配置参考（所有键 + 示例）。](docs-cn/gateway/configuration.md)
 
 ## 安全模型（重要）
 
@@ -319,15 +319,15 @@ ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以�
 - **群组/频道安全：** 设置 `agents.defaults.sandbox.mode: "non-main"` 在每会话 Docker 沙箱中运行 **非主会话**（群组/频道）；bash 然后在这些会话的 Docker 中运行。
 - **沙箱默认值：** 允许列表 `bash`、`process`、`read`、`write`、`edit`、`sessions_list`、`sessions_history`、`sessions_send`、`sessions_spawn`；拒绝列表 `browser`、`canvas`、`nodes`、`cron`、`discord`、`gateway`。
 
-详情：[安全指南](https://docs.molt.bot/gateway/security) · [Docker + 沙箱](https://docs.molt.bot/install/docker) · [沙箱配置](https://docs.molt.bot/gateway/configuration)
+详情：[安全指南](docs-cn/gateway/security.md) · [Docker + 沙箱](docs-cn/install/docker.md) · [沙箱配置](docs-cn/gateway/configuration.md)
 
-### [WhatsApp](https://docs.molt.bot/channels/whatsapp)
+### [WhatsApp](docs-cn/channels/whatsapp.md)
 
 - 链接设备：`pnpm moltbot channels login`（将凭据存储在 `~/.clawdbot/credentials` 中）。
 - 通过 `channels.whatsapp.allowFrom` 设置允许与助手对话的人。
 - 如果设置了 `channels.whatsapp.groups`，它将成为群组允许列表；包含 `"*"` 以允许所有。
 
-### [Telegram](https://docs.molt.bot/channels/telegram)
+### [Telegram](docs-cn/channels/telegram.md)
 
 - 设置 `TELEGRAM_BOT_TOKEN` 或 `channels.telegram.botToken`（环境变量优先）。
 - 可选：设置 `channels.telegram.groups`（使用 `channels.telegram.groups."*".requireMention`）；设置时，它是群组允许列表（包含 `"*"` 以允许所有）。还可以根据需要设置 `channels.telegram.allowFrom` 或 `channels.telegram.webhookUrl`。
@@ -342,11 +342,11 @@ ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以�
 }
 ```
 
-### [Slack](https://docs.molt.bot/channels/slack)
+### [Slack](docs-cn/channels/slack.md)
 
 - 设置 `SLACK_BOT_TOKEN` + `SLACK_APP_TOKEN`（或 `channels.slack.botToken` + `channels.slack.appToken`）。
 
-### [Discord](https://docs.molt.bot/channels/discord)
+### [Discord](docs-cn/channels/discord.md)
 
 - 设置 `DISCORD_BOT_TOKEN` 或 `channels.discord.token`（环境变量优先）。
 - 可选：设置 `commands.native`、`commands.text` 或 `commands.useAccessGroups`，以及根据需要设置 `channels.discord.dm.allowFrom`、`channels.discord.guilds` 或 `channels.discord.mediaMaxMb`。
@@ -361,21 +361,21 @@ ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以�
 }
 ```
 
-### [Signal](https://docs.molt.bot/channels/signal)
+### [Signal](docs-cn/channels/signal.md)
 
 - 需要 `signal-cli` 和 `channels.signal` 配置部分。
 
-### [iMessage](https://docs.molt.bot/channels/imessage)
+### [iMessage](docs-cn/channels/imessage.md)
 
 - 仅限 macOS；必须登录 Messages。
 - 如果设置了 `channels.imessage.groups`，它将成为群组允许列表；包含 `"*"` 以允许所有。
 
-### [Microsoft Teams](https://docs.molt.bot/channels/msteams)
+### [Microsoft Teams](docs-cn/channels/msteams.md)
 
 - 配置 Teams 应用 + Bot Framework，然后添加 `msteams` 配置部分。
 - 通过 `msteams.allowFrom` 设置允许对话的人；通过 `msteams.groupAllowFrom` 或 `msteams.groupPolicy: "open"` 进行群组访问。
 
-### [WebChat](https://docs.molt.bot/web/webchat)
+### [WebChat](docs-cn/web/webchat.md)
 
 - 使用网关 WebSocket；没有单独的 WebChat 端口/配置。
 
@@ -393,69 +393,69 @@ ClawdHub 是一个极简的技能注册表。启用 ClawdHub 后，代理可以�
 ## 文档
 
 当你完成入门流程并想要更深入的参考时使用这些。
-- [从文档索引开始，了解导航和"什么在哪里"。](https://docs.molt.bot)
-- [阅读架构概述以了解网关 + 协议模型。](https://docs.molt.bot/concepts/architecture)
-- [当你需要每个键和示例时，使用完整的配置参考。](https://docs.molt.bot/gateway/configuration)
-- [按照操作运行手册运行网关。](https://docs.molt.bot/gateway)
-- [了解控制 UI/Web 界面如何工作以及如何安全地暴露它们。](https://docs.molt.bot/web)
-- [了解通过 SSH 隧道或 tailnet 进行远程访问。](https://docs.molt.bot/gateway/remote)
-- [按照入门向导流程进行引导式设置。](https://docs.molt.bot/start/wizard)
-- [通过 webhook 界面连接外部触发器。](https://docs.molt.bot/automation/webhook)
-- [设置 Gmail Pub/Sub 触发器。](https://docs.molt.bot/automation/gmail-pubsub)
-- [了解 macOS 菜单栏配套详细信息。](https://docs.molt.bot/platforms/mac/menu-bar)
-- [平台指南：Windows (WSL2)](https://docs.molt.bot/platforms/windows)、[Linux](https://docs.molt.bot/platforms/linux)、[macOS](https://docs.molt.bot/platforms/macos)、[iOS](https://docs.molt.bot/platforms/ios)、[Android](https://docs.molt.bot/platforms/android)
-- [使用故障排除指南调试常见故障。](https://docs.molt.bot/channels/troubleshooting)
-- [在暴露任何内容之前查看安全指南。](https://docs.molt.bot/gateway/security)
+- [从文档索引开始，了解导航和"什么在哪里"。]((docs-cn/index.md)
+- [阅读架构概述以了解网关 + 协议模型。](docs-cn/concepts/architecture.md)
+- [当你需要每个键和示例时，使用完整的配置参考。](docs-cn/gateway/configuration.md)
+- [按照操作运行手册运行网关。](docs-cn/gateway/index.md)
+- [了解控制 UI/Web 界面如何工作以及如何安全地暴露它们。](docs-cn/web/index.md)
+- [了解通过 SSH 隧道或 tailnet 进行远程访问。](docs-cn/gateway/remote.md)
+- [按照入门向导流程进行引导式设置。](docs-cn/start/wizard.md)
+- [通过 webhook 界面连接外部触发器。](docs-cn/automation/webhook.md)
+- [设置 Gmail Pub/Sub 触发器。](docs-cn/automation/gmail-pubsub.md)
+- [了解 macOS 菜单栏配套详细信息。](docs-cn/platforms/mac/menu-bar.md)
+- [平台指南：Windows (WSL2)](docs-cn/platforms/windows.md)、[Linux](docs-cn/platforms/linux.md)、[macOS](docs-cn/platforms/macos.md)、[iOS](docs-cn/platforms/ios.md)、[Android](docs-cn/platforms/android.md)
+- [使用故障排除指南调试常见故障。](docs-cn/channels/troubleshooting.md)
+- [在暴露任何内容之前查看安全指南。](docs-cn/gateway/security.md)
 
 ## 高级文档（发现 + 控制）
 
-- [发现 + 传输](https://docs.molt.bot/gateway/discovery)
-- [Bonjour/mDNS](https://docs.molt.bot/gateway/bonjour)
-- [网关配对](https://docs.molt.bot/gateway/pairing)
-- [远程网关 README](https://docs.molt.bot/gateway/remote-gateway-readme)
-- [控制 UI](https://docs.molt.bot/web/control-ui)
-- [仪表板](https://docs.molt.bot/web/dashboard)
+- [发现 + 传输](docs-cn/gateway/discovery.md)
+- [Bonjour/mDNS](docs-cn/gateway/bonjour.md)
+- [网关配对](docs-cn/gateway/pairing.md)
+- [远程网关 README](docs-cn/gateway/remote-gateway-readme.md)
+- [控制 UI](docs-cn/web/control-ui.md)
+- [仪表板](docs-cn/web/dashboard.md)
 
 ## 运维 & 故障排除
 
-- [健康检查](https://docs.molt.bot/gateway/health)
-- [网关锁](https://docs.molt.bot/gateway/gateway-lock)
-- [后台进程](https://docs.molt.bot/gateway/background-process)
-- [浏览器故障排除 (Linux)](https://docs.molt.bot/tools/browser-linux-troubleshooting)
-- [日志记录](https://docs.molt.bot/logging)
+- [健康检查](docs-cn/gateway/health.md)
+- [网关锁](docs-cn/gateway/gateway-lock.md)
+- [后台进程](docs-cn/gateway/background-process.md)
+- [浏览器故障排除 (Linux)](docs-cn/tools/browser-linux-troubleshooting.md)
+- [日志记录](docs-cn/logging.md)
 
 ## 深入探讨
 
-- [代理循环](https://docs.molt.bot/concepts/agent-loop)
-- [在线状态](https://docs.molt.bot/concepts/presence)
-- [TypeBox 模式](https://docs.molt.bot/concepts/typebox)
-- [RPC 适配器](https://docs.molt.bot/reference/rpc)
-- [队列](https://docs.molt.bot/concepts/queue)
+- [代理循环](docs-cn/concepts/agent-loop.md)
+- [在线状态](docs-cn/concepts/presence.md)
+- [TypeBox 模式](docs-cn/concepts/typebox.md)
+- [RPC 适配器](docs-cn/reference/rpc.md)
+- [队列](docs-cn/concepts/queue.md)
 
 ## 工作区 & 技能
 
-- [技能配置](https://docs.molt.bot/tools/skills-config)
-- [默认 AGENTS](https://docs.molt.bot/reference/AGENTS.default)
-- [模板：AGENTS](https://docs.molt.bot/reference/templates/AGENTS)
-- [模板：BOOTSTRAP](https://docs.molt.bot/reference/templates/BOOTSTRAP)
-- [模板：IDENTITY](https://docs.molt.bot/reference/templates/IDENTITY)
-- [模板：SOUL](https://docs.molt.bot/reference/templates/SOUL)
-- [模板：TOOLS](https://docs.molt.bot/reference/templates/TOOLS)
-- [模板：USER](https://docs.molt.bot/reference/templates/USER)
+- [技能配置](docs-cn/tools/skills-config.md)
+- [默认 AGENTS](docs-cn/reference/AGENTS.default.md)
+- [模板：AGENTS](docs-cn/reference/templates/AGENTS.md)
+- [模板：BOOTSTRAP](docs-cn/reference/templates/BOOTSTRAP.md)
+- [模板：IDENTITY](docs-cn/reference/templates/IDENTITY.md)
+- [模板：SOUL](docs-cn/reference/templates/SOUL.md)
+- [模板：TOOLS](docs-cn/reference/templates/TOOLS.md)
+- [模板：USER](docs-cn/reference/templates/USER.md)
 
 ## 平台内部
 
-- [macOS 开发设置](https://docs.molt.bot/platforms/mac/dev-setup)
-- [macOS 菜单栏](https://docs.molt.bot/platforms/mac/menu-bar)
-- [macOS 语音唤醒](https://docs.molt.bot/platforms/mac/voicewake)
-- [iOS 节点](https://docs.molt.bot/platforms/ios)
-- [Android 节点](https://docs.molt.bot/platforms/android)
-- [Windows (WSL2)](https://docs.molt.bot/platforms/windows)
-- [Linux 应用](https://docs.molt.bot/platforms/linux)
+- [macOS 开发设置](docs-cn/platforms/mac/dev-setup.md)
+- [macOS 菜单栏](docs-cn/platforms/mac/menu-bar.md)
+- [macOS 语音唤醒](docs-cn/platforms/mac/voicewake.md)
+- [iOS 节点](docs-cn/platforms/ios.md)
+- [Android 节点](docs-cn/platforms/android.md)
+- [Windows (WSL2)](docs-cn/platforms/windows.md)
+- [Linux 应用](docs-cn/platforms/linux.md)
 
 ## 邮件钩子（Gmail）
 
-- [docs.molt.bot/gmail-pubsub](https://docs.molt.bot/automation/gmail-pubsub)
+- [docs.molt.bot/gmail-pubsub](docs-cn/automation/gmail-pubsub.md)
 
 ## Molty
 
