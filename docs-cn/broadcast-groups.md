@@ -1,72 +1,76 @@
 ---
-summary: "Broadcast a WhatsApp 消息 to multiple 代理"
-read_when: 
-  - Configuring broadcast groups
-  - Debugging multi-agent replies in WhatsApp
+summary: "向多个代理广播 WhatsApp 消息"
+read_when:
+  - 配置广播组
+  - 调试 WhatsApp 中的多代理回复
 status: experimental
 ---
 
-# Broadcast Groups
+# 广播组
 
-**状态:** Experimental  
-**版本:** Added in 2026.1.9
+**状态：** 实验性功能
+**版本：** 2026.1.9 新增
 
 ## 概述
 
-Broadcast Groups enable multiple 代理 to 进程 and respond to the same 消息 simultaneously. This allows you to create specialized 代理 teams that work together in a single WhatsApp group or DM — all using one phone 数字.
+广播组使多个代理能够同时处理和响应同一条消息。这允许您创建专门的代理团队，在单个 WhatsApp 群组或私信中协同工作 — 全部使用一个电话号码。
 
-Current scope: **WhatsApp only** (Web 渠道).
+当前范围：**仅限 WhatsApp**（Web 频道）。
 
-Broadcast groups are evaluated after 渠道 allowlists and group activation 规则. In WhatsApp groups, this means broadcasts happen when Moltbot would normally reply (例如: on mention, depending on your group 设置).
+广播组在频道白名单和群组激活规则之后进行评估。在 WhatsApp 群组中，这意味着广播发生在 Moltbot 通常会回复的时候（例如：在被提及时，根据您的群组设置）。
 
 ## 用例
 
-### 1. Specialized 代理 Teams
-Deploy multiple 代理 with atomic, focused responsibilities:
+### 1. 专门的代理团队
+
+部署多个具有原子化、专注职责的代理：
 ```
-Group: "Development Team"
-Agents:
-  - CodeReviewer (reviews code snippets)
-  - DocumentationBot (generates docs)
-  - SecurityAuditor (checks for vulnerabilities)
-  - TestGenerator (suggests test cases)
+群组："开发团队"
+代理：
+  - CodeReviewer（审查代码片段）
+  - DocumentationBot（生成文档）
+  - SecurityAuditor（检查漏洞）
+  - TestGenerator（建议测试用例）
 ```
 
-Each 代理 进程 the same 消息 and provides its specialized perspective.
+每个代理处理相同的消息并提供其专门的视角。
 
-### 2. Multi-Language Support
-```
-Group: "International Support"
-Agents:
-  - Agent_EN (responds in English)
-  - Agent_DE (responds in German)
-  - Agent_ES (responds in Spanish)
-```
+### 2. 多语言支持
 
-### 3. Quality Assurance Workflows
 ```
-Group: "Customer Support"
-Agents:
-  - SupportAgent (provides answer)
-  - QAAgent (reviews quality, only responds if issues found)
+群组："国际支持"
+代理：
+  - Agent_EN（用英语回复）
+  - Agent_DE（用德语回复）
+  - Agent_ES（用西班牙语回复）
 ```
 
-### 4. Task Automation
+### 3. 质量保证工作流
+
 ```
-Group: "Project Management"
-Agents:
-  - TaskTracker (updates task database)
-  - TimeLogger (logs time spent)
-  - ReportGenerator (creates summaries)
+群组："客户支持"
+代理：
+  - SupportAgent（提供答案）
+  - QAAgent（审查质量，仅在发现问题时回复）
+```
+
+### 4. 任务自动化
+
+```
+群组："项目管理"
+代理：
+  - TaskTracker（更新任务数据库）
+  - TimeLogger（记录花费的时间）
+  - ReportGenerator（创建摘要）
 ```
 
 ## 配置
 
-### Basic 设置
+### 基本设置
 
-Add a top-level `broadcast` section (next to `bindings`). Keys are WhatsApp peer ids:
-- group chats: group JID (e.g. `120363403215116621@g.us`)
-- DMs: E.164 phone number (e.g. `+15551234567`)
+在顶层添加 `broadcast` 部分（在 `bindings` 旁边）。键是 WhatsApp 对等 ID：
+- 群组聊天：群组 JID（例如 `120363403215116621@g.us`）
+- 私信：E.164 电话号码（例如 `+15551234567`）
 
 ```json
 {
@@ -76,14 +80,15 @@ Add a top-level `broadcast` section (next to `bindings`). Keys are WhatsApp peer
 }
 ```
 
-**结果:** When Moltbot would reply in this chat, it will run all three 代理.
+**结果：** 当 Moltbot 在此聊天中回复时，它将运行所有三个代理。
 
-### Processing Strategy
+### 处理策略
 
-Control how 代理 进程 消息:
+控制代理如何处理消息：
 
-#### Parallel (默认)
-All 代理 进程 simultaneously:
+#### 并行（默认）
+
+所有代理同时处理：
 ```json
 {
   "broadcast": {
@@ -93,8 +98,9 @@ All 代理 进程 simultaneously:
 }
 ```
 
-#### Sequential
-代理 进程 in order (one waits for previous to finish):
+#### 顺序
+
+代理按顺序处理（一个等待前一个完成）：
 ```json
 {
   "broadcast": {
@@ -104,7 +110,7 @@ All 代理 进程 simultaneously:
 }
 ```
 
-### Complete 示例
+### 完整示例
 
 ```json
 {
@@ -141,61 +147,61 @@ All 代理 进程 simultaneously:
 
 ## 工作原理
 
-### 消息 Flow
+### 消息流程
 
-1. **Incoming 消息** arrives in a WhatsApp group
-2. **Broadcast check**: System checks if peer ID is in `broadcast`
-3. **If in broadcast list**:
-   - All listed 代理 进程 the 消息
-   - Each 代理 has its own 会话 键 and isolated 上下文
-   - 代理 进程 in parallel (默认) or sequentially
-4. **If not in broadcast list**:
-   - Normal routing applies (first matching 绑定)
+1. **传入消息**到达 WhatsApp 群组
+2. **广播检查**：系统检查对等 ID 是否在 `broadcast` 中
+3. **如果在广播列表中**：
+   - 所有列出的代理处理该消息
+   - 每个代理都有自己的会话键和隔离的上下文
+   - 代理并行（默认）或顺序处理
+4. **如果不在广播列表中**：
+   - 应用正常路由（第一个匹配的绑定）
 
-注意: broadcast groups do not bypass 渠道 allowlists or group activation 规则 (mentions/命令/etc). They only change *which 代理 run* when a 消息 is eligible for processing.
+注意：广播组不会绕过频道白名单或群组激活规则（提及/命令等）。它们只会在消息符合处理条件时改变*运行哪些代理*。
 
-### 会话 Isolation
+### 会话隔离
 
-Each 代理 in a broadcast group maintains completely separate:
+广播组中的每个代理维护完全独立的：
 
-- **Session keys** (`agent:alfred:whatsapp:group:120363...` vs `agent:baerbel:whatsapp:group:120363...`)
-- **Conversation history** (代理 doesn't 参见 other 代理' 消息)
-- **工作空间** (separate 沙箱 if configured)
-- **工具 access** (different allow/deny lists)
-- **Memory/上下文** (separate IDENTITY.md, SOUL.md, etc.)
-- **Group 上下文 缓冲区** (recent group 消息 used for 上下文) is shared per peer, so all broadcast 代理 参见 the same 上下文 when triggered
+- **会话键**（`agent:alfred:whatsapp:group:120363...` vs `agent:baerbel:whatsapp:group:120363...`）
+- **对话历史**（代理看不到其他代理的消息）
+- **工作空间**（如果配置了，则为独立的沙盒）
+- **工具访问**（不同的允许/拒绝列表）
+- **内存/上下文**（独立的 IDENTITY.md、SOUL.md 等）
+- **群组上下文缓冲区**（用于上下文的最近群组消息）按对等方共享，因此所有广播代理在触发时看到相同的上下文
 
-This allows each 代理 to have:
-- Different personalities
-- Different 工具 access (e.g., read-only vs. read-write)
-- Different 模型 (e.g., opus vs. sonnet)
-- Different 技能 installed
+这允许每个代理具有：
+- 不同的个性
+- 不同的工具访问（例如，只读 vs 读写）
+- 不同的模型（例如，opus vs sonnet）
+- 安装的不同技能
 
-### 示例: Isolated 会话
+### 示例：隔离的会话
 
-In group `120363403215116621@g.us` with agents `["alfred", "baerbel"]`:
+在群组 `120363403215116621@g.us` 中，代理为 `["alfred", "baerbel"]`：
 
-**Alfred's 上下文:**
+**Alfred 的上下文：**
 ```
 Session: agent:alfred:whatsapp:group:120363403215116621@g.us
-History: [user message, alfred's previous responses]
+History: [用户消息，alfred 的先前回复]
 Workspace: /Users/pascal/clawd-alfred/
 Tools: read, write, exec
 ```
 
-**Bärbel's 上下文:**
+**Bärbel 的上下文：**
 ```
-Session: agent:baerbel:whatsapp:group:120363403215116621@g.us  
-History: [user message, baerbel's previous responses]
+Session: agent:baerbel:whatsapp:group:120363403215116621@g.us
+History: [用户消息，baerbel 的先前回复]
 Workspace: /Users/pascal/clawd-baerbel/
 Tools: read only
 ```
 
 ## 最佳实践
 
-### 1. Keep 代理 Focused
+### 1. 保持代理专注
 
-Design each 代理 with a single, clear responsibility:
+为每个代理设计单一、清晰的职责：
 
 ```json
 {
@@ -205,12 +211,12 @@ Design each 代理 with a single, clear responsibility:
 }
 ```
 
-✅ **Good:** Each 代理 has one job  
-❌ **Bad:** One generic "dev-helper" 代理
+✅ **好：** 每个代理有一项工作
+❌ **坏：** 一个通用的 "dev-helper" 代理
 
-### 2. Use Descriptive Names
+### 2. 使用描述性名称
 
-Make it clear what each 代理 does:
+明确每个代理的作用：
 
 ```json
 {
@@ -222,52 +228,52 @@ Make it clear what each 代理 does:
 }
 ```
 
-### 3. Configure Different 工具 Access
+### 3. 配置不同的工具访问
 
-Give 代理 only the 工具 they need:
+仅给代理他们需要的工具：
 
 ```json
 {
   "agents": {
     "reviewer": {
-      "tools": { "allow": ["read", "exec"] }  // Read-only
+      "tools": { "allow": ["read", "exec"] }  // 只读
     },
     "fixer": {
-      "tools": { "allow": ["read", "write", "edit", "exec"] }  // Read-write
+      "tools": { "allow": ["read", "write", "edit", "exec"] }  // 读写
     }
   }
 }
 ```
 
-### 4. Monitor 性能
+### 4. 监控性能
 
-With many 代理, consider:
-- Using `"strategy": "parallel"` (默认) for speed
-- Limiting broadcast groups to 5-10 代理
-- Using faster 模型 for simpler 代理
+对于许多代理，考虑：
+- 使用 `"strategy": "parallel"`（默认）以提高速度
+- 将广播组限制为 5-10 个代理
+- 为更简单的代理使用更快的模型
 
-### 5. Handle Failures Gracefully
+### 5. 优雅地处理失败
 
-代理 fail independently. One 代理's 错误 doesn't block others:
+代理独立失败。一个代理的错误不会阻止其他代理：
 
 ```
-Message → [Agent A ✓, Agent B ✗ error, Agent C ✓]
-Result: Agent A and C respond, Agent B logs error
+消息 → [代理 A ✓，代理 B ✗ 错误，代理 C ✓]
+结果：代理 A 和 C 回复，代理 B 记录错误
 ```
 
-## Compatibility
+## 兼容性
 
 ### 提供商
 
-Broadcast groups currently work with:
-- ✅ WhatsApp (implemented)
-- 🚧 Telegram (planned)
-- 🚧 Discord (planned)
-- 🚧 Slack (planned)
+广播组目前适用于：
+- ✅ WhatsApp（已实现）
+- 🚧 Telegram（计划中）
+- 🚧 Discord（计划中）
+- 🚧 Slack（计划中）
 
-### Routing
+### 路由
 
-Broadcast groups work alongside existing routing:
+广播组与现有路由一起工作：
 
 ```json
 {
@@ -280,41 +286,41 @@ Broadcast groups work alongside existing routing:
 }
 ```
 
-- `GROUP_A`: Only alfred responds (normal routing)
-- `GROUP_B`: agent1 AND agent2 respond (broadcast)
+- `GROUP_A`：只有 alfred 回复（正常路由）
+- `GROUP_B`：agent1 和 agent2 都回复（广播）
 
-**Precedence:** `broadcast` takes priority over `bindings`.
+**优先级：** `broadcast` 优先于 `bindings`。
 
 ## 故障排除
 
-### 代理 Not Responding
+### 代理不响应
 
-**Check:**
-1. Agent IDs exist in `agents.list`
-2. Peer ID format is correct (e.g., `120363403215116621@g.us`)
-3. 代理 are not in deny lists
+**检查：**
+1. 代理 ID 存在于 `agents.list` 中
+2. 对等 ID 格式正确（例如，`120363403215116621@g.us`）
+3. 代理不在拒绝列表中
 
-**调试:**
+**调试：**
 ```bash
 tail -f ~/.clawdbot/logs/gateway.log | grep broadcast
 ```
 
-### Only One 代理 Responding
+### 只有一个代理响应
 
-**Cause:** Peer ID might be in `bindings` but not `broadcast`.
+**原因：** 对等 ID 可能在 `bindings` 中但不在 `broadcast` 中。
 
-**Fix:** Add to broadcast 配置 or remove from 绑定.
+**修复：** 添加到广播配置或从绑定中删除。
 
-### 性能 Issues
+### 性能问题
 
-**If slow with many 代理:**
-- Reduce 数字 of 代理 per group
-- Use lighter 模型 (sonnet instead of opus)
-- Check 沙箱 startup time
+**如果有许多代理时速度慢：**
+- 减少每个群的代理数量
+- 使用更轻量的模型（sonnet 而不是 opus）
+- 检查沙盒启动时间
 
 ## 示例
 
-### 示例 1: Code Review Team
+### 示例 1：代码审查团队
 
 ```json
 {
@@ -338,14 +344,14 @@ tail -f ~/.clawdbot/logs/gateway.log | grep broadcast
 }
 ```
 
-**用户 sends:** Code snippet  
-**响应:**
-- code-formatter: "Fixed indentation and added 类型 hints"
-- 安全-scanner: "⚠️ SQL injection vulnerability in line 12"
-- 测试-coverage: "Coverage is 45%, missing 测试 for 错误 cases"
-- docs-checker: "Missing docstring for function `process_data`"
+**用户发送：** 代码片段
+**回复：**
+- code-formatter："修复了缩进并添加了类型提示"
+- security-scanner："⚠️ 第 12 行存在 SQL 注入漏洞"
+- test-coverage："覆盖率为 45%，缺少错误情况的测试"
+- docs-checker："函数 `process_data` 缺少文档字符串"
 
-### 示例 2: Multi-Language Support
+### 示例 2：多语言支持
 
 ```json
 {
@@ -365,7 +371,7 @@ tail -f ~/.clawdbot/logs/gateway.log | grep broadcast
 
 ## API 参考
 
-### 配置 模式
+### 配置模式
 
 ```typescript
 interface MoltbotConfig {
@@ -376,32 +382,32 @@ interface MoltbotConfig {
 }
 ```
 
-### Fields
+### 字段
 
-- `strategy` (可选): 如何 进程 代理
-  - `"parallel"` (默认): All 代理 进程 simultaneously
-  - `"sequential"`: 代理 进程 in 数组 order
-  
-- `[peerId]`: WhatsApp group JID, E.164 数字, or other peer ID
-  - 值: 数组 of 代理 IDs that should 进程 消息
+- `strategy`（可选）：如何处理代理
+  - `"parallel"`（默认）：所有代理同时处理
+  - `"sequential"`：代理按数组顺序处理
+
+- `[peerId]`：WhatsApp 群组 JID、E.164 号码或其他对等 ID
+  - 值：应该处理消息的代理 ID 数组
 
 ## 限制
 
-1. **Max 代理:** No hard limit, but 10+ 代理 may be slow
-2. **Shared 上下文:** 代理 don't 参见 each other's 响应 (by design)
-3. **消息 ordering:** Parallel 响应 may arrive in any order
-4. **Rate limits:** All 代理 count toward WhatsApp rate limits
+1. **最大代理数：** 没有硬性限制，但 10+ 个代理可能会很慢
+2. **共享上下文：** 代理看不到其他代理的回复（设计如此）
+3. **消息排序：** 并行回复可能以任何顺序到达
+4. **速率限制：** 所有代理都计入 WhatsApp 速率限制
 
-## Future Enhancements
+## 未来增强
 
-Planned 功能:
-- [ ] Shared 上下文 mode (代理 参见 each other's 响应)
-- [ ] 代理 coordination (代理 can signal each other)
-- [ ] Dynamic 代理 selection (choose 代理 based on 消息 content)
-- [ ] 代理 priorities (some 代理 respond before others)
+计划的功能：
+- [ ] 共享上下文模式（代理看到其他代理的回复）
+- [ ] 代理协调（代理可以相互发信号）
+- [ ] 动态代理选择（根据消息内容选择代理）
+- [ ] 代理优先级（某些代理先于其他代理回复）
 
 ## 另请参阅
 
-- [Multi-代理 配置](/multi-代理-沙箱-工具)
-- [Routing 配置](/concepts/渠道-routing)
-- [会话 Management](/concepts/会话)
+- [多代理配置](/multi-agent-sandbox-tools)
+- [路由配置](/concepts/channel-routing)
+- [会话管理](/concepts/sessions)
